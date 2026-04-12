@@ -11,7 +11,13 @@ node_modules
 dist
 dist-ssr
 *.local
-social.txt
+
+# Env files with real secrets — never commit these
+.env
+.env.*
+# Re-allow the safe template
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,8 +28,3 @@ social.txt
 *.njsproj
 *.sln
 *.sw?
-.env
-.env.*
-supabasedb.md
-build_debug.log
-build_error.log

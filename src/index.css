@@ -1,185 +1,64 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-@import "tailwindcss";
-
-:root {
-  --accent-color: #2563EB;
-  --accent-gradient: linear-gradient(135deg, #2563EB 0%, #60A5FA 100%);
-}
-
-@theme {
-  --color-background: #ffffff;
-  --color-foreground: #121315;
-  --color-muted: #6b7280;
-  --color-border: #e5e7eb;
-  --color-accent-blue: var(--accent-color, #2563eb);
-  --color-accent-light: color-mix(in srgb, var(--accent-color, #2563eb) 5%, transparent);
-
-  --font-sans: "Inter", "system-ui", "sans-serif";
-  --font-display: "Space Grotesk", "Inter", "system-ui", "sans-serif";
-
-  --font-size-display-2xl: 8rem;
-  --font-size-display-xl: 5rem;
-  --font-size-display-lg: 4rem;
-  --font-size-display-md: 2.5rem;
-}
-
-/* Dark Theme Variables */
-.dark {
-  --color-background: #0a0a0a;
-  --color-foreground: #ffffff;
-  --color-muted: #9ca3af;
-  --color-border: #262626;
-  --color-accent-light: color-mix(in srgb, var(--accent-color, #2563eb) 10%, #171717);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
-  * {
-    transition: color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-  }
-
-  .theme-transitioning * {
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  }
-
   html {
     scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    overflow-x: hidden;
+    @apply font-['Inter'] transition-colors duration-300 antialiased;
+    @apply bg-background-light text-text-light;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-display);
-    letter-spacing: -0.025em;
-    color: var(--color-foreground);
+  .dark body {
+    @apply bg-background-dark text-text-dark;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Noise Texture */
+  .noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.05;
+    z-index: 9999;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    filter: contrast(150%) brightness(100%);
   }
 }
 
 @layer components {
-  .container {
-    max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  .container-custom {
+    @apply max-w-5xl mx-auto px-6 md:px-12;
   }
 
-  @media (min-width: 768px) {
-    .container {
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
+  .glass {
+    @apply bg-white/40 dark:bg-gray-900/40 backdrop-blur-xl border border-white/20 dark:border-white/5;
   }
 
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 4rem;
-      padding-right: 4rem;
-    }
-  }
-
-  .glass-light {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  }
-
-  .dark .glass-light {
-    background-color: rgba(10, 10, 10, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .gradient-text {
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(to right, var(--color-foreground), var(--color-muted), var(--color-accent-blue));
-  }
-
-  .accent-gradient-bg {
-    background: var(--accent-gradient);
-  }
-
-  .global-glow {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 80% 20%, var(--color-accent-light), transparent 40%),
-      radial-gradient(circle at 20% 80%, var(--color-accent-light), transparent 40%);
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.5;
-  }
-
-  .section-padding {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-  }
-
-  @media (min-width: 768px) {
-    .section-padding {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding-top: 10rem;
-      padding-bottom: 10rem;
-    }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-blue-700 to-gray-900 dark:from-gray-100 dark:via-blue-400 dark:to-gray-100 bg-[length:200%_auto] animate-gradient;
   }
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+@layer utilities {
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--color-background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: #d1d5db;
-  border-radius: 10px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #333;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-muted);
-}
-
-::selection {
-  background-color: var(--color-accent-blue);
-  color: white;
-}
-
-/* Smooth reveal animations */
-.reveal-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-up.active {
-  opacity: 1;
-  transform: translateY(0);
+  .animate-gradient {
+    animation: gradient 8s linear infinite;
+  }
 }

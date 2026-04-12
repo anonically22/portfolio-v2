@@ -1,46 +1,25 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import { Sun, Moon } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setIsDark(false);
-      document.documentElement.classList.remove('dark');
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newIsDark = !isDark;
-    setIsDark(newIsDark);
-    if (newIsDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       onClick={toggleTheme}
-      className="relative w-14 h-7 bg-border dark:bg-accent-light rounded-full p-1 transition-colors duration-300 focus:outline-none group"
-      aria-label="Toggle theme"
+      className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-colors"
+      aria-label="Toggle Theme"
     >
-      <motion.div
-        animate={{ x: isDark ? 28 : 0 }}
-        transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        className="w-5 h-5 bg-white dark:bg-foreground rounded-full shadow-sm flex items-center justify-center overflow-hidden"
-      />
-    </button>
+      {theme === 'light' ? (
+        <Moon size={20} className="text-gray-900" />
+      ) : (
+        <Sun size={20} className="text-yellow-400" />
+      )}
+    </motion.button>
   );
 };
 
