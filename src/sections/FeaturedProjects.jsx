@@ -38,10 +38,16 @@ const B = '1px solid #1a1a1a';
 const FeaturedProjects = () => {
   return (
     <section id="projects" style={{ display: 'flex', flexDirection: 'column' }}>
+      {/* Header Row */}
+      <div style={{ borderBottom: B }}>
+        <div className="section-container" style={{ paddingTop: '3rem', paddingBottom: '2.5rem' }}>
+          <h2 style={{ fontFamily: 'Poiret One, system-ui, sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }}>Projects</h2>
+        </div>
+      </div>
       {projects.map((project, index) => (
         <div key={index} style={{ borderBottom: B }}>
-          <div className="section-container" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '3rem', minHeight: '460px' }}>
+          <div className="section-container" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+            <div className="flex flex-col lg:grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 lg:min-h-[460px]">
 
               {/* Left: Title + Description + Tag */}
               <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -51,7 +57,7 @@ const FeaturedProjects = () => {
                   </h3>
                 </Link>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem' }}>
-                  <p style={{ fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.4, maxWidth: '360px' }}>
+                  <p style={{ fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.4, maxWidth: '360px', textAlign: 'justify', hyphens: 'auto' }}>
                     {project.description}
                   </p>
                   <span

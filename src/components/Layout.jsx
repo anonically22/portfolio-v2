@@ -18,7 +18,12 @@ const Layout = ({ children }) => {
 
       <Navbar />
 
-      <main className="flex-grow z-10 pt-[72px]">
+      {/* Mobile Notice */}
+      <div className="md:hidden sticky top-[72px] z-[90] w-full bg-[#1a1a1a] text-[#f2f1ec] text-center text-xs sm:text-sm py-2.5 px-4 shadow-sm font-medium tracking-wide uppercase">
+        Site looks best on desktop
+      </div>
+
+      <main className="flex-grow z-10 pt-[72px] md:pt-[72px]">
         <AnimatePresence mode="wait">
           <motion.div
             key="page-content"

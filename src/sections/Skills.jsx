@@ -31,24 +31,24 @@ const Skills = () => {
     <section style={{ borderBottom: B }}>
       {/* Header Row */}
       <div style={{ borderBottom: B }}>
-        <div className="section-container" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
-          <h2 style={{ fontSize: '1.375rem', fontWeight: 500, letterSpacing: '-0.03em' }}>Services</h2>
+        <div className="section-container" style={{ paddingTop: '3rem', paddingBottom: '2.5rem' }}>
+          <h2 style={{ fontFamily: 'Poiret One, system-ui, sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }}>Services</h2>
         </div>
       </div>
 
       {/* Content */}
-      <div className="section-container" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '4rem' }}>
+      <div className="section-container" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <div className="flex flex-col lg:grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-16">
 
           {/* Left intro */}
           <div>
-            <p style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 500, lineHeight: 1.3, letterSpacing: '-0.03em' }}>
+            <p style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 500, lineHeight: 1.3, letterSpacing: '-0.03em', textAlign: 'justify', hyphens: 'auto' }}>
               I am dedicated to expanding my knowledge and expertise in software engineering. If you like my portfolio, please reach out!
             </p>
           </div>
 
           {/* Right 2x2 grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem 4rem' }}>
+          <div className="flex flex-col sm:grid sm:grid-cols-2 gap-12 sm:gap-16">
             {services.map(({ Icon, title, description }, idx) => (
               <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div style={{ width: '64px', height: '64px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -58,7 +58,7 @@ const Skills = () => {
                   <h4 style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '0.75rem' }}>
                     {title}
                   </h4>
-                  <p style={{ fontSize: '1.125rem', fontWeight: 500, lineHeight: 1.45, color: '#444' }}>
+                  <p style={{ fontSize: '1.125rem', fontWeight: 500, lineHeight: 1.45, color: '#444', textAlign: 'justify', hyphens: 'auto' }}>
                     {description}
                   </p>
                 </div>

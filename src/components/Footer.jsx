@@ -34,9 +34,9 @@ const Footer = () => {
       {/* --- OLD CONTACT SECTION --- */}
       {/* Header Row */}
       <div style={{ borderTop: B, borderBottom: B }}>
-        <div className="section-container" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
+        <div className="section-container" style={{ paddingTop: '3rem', paddingBottom: '2.5rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center' }}>
-            <h2 style={{ fontSize: '1.375rem', fontWeight: 500, letterSpacing: '-0.03em' }}>Contact</h2>
+            <h2 style={{ fontFamily: 'Poiret One, system-ui, sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }}>Contact</h2>
             <div style={{ textAlign: 'right', fontSize: '1.125rem', fontWeight: 500 }}>
               Available for remote work
             </div>
@@ -127,8 +127,9 @@ const Footer = () => {
               <span style={{ fontSize: '32px', lineHeight: 1, transform: 'translateY(8px)', display: 'inline-block' }} className="font-sans mr-[2px] font-medium">*</span>
               <span style={{ fontSize: '28px', lineHeight: 1, fontFamily: 'Poiret One, system-ui, sans-serif', display: 'inline-block' }} className="font-bold tracking-tight">as</span>
             </span>
-            <p className="text-gray-500 text-sm font-semibold tracking-tight">
-              © {new Date().getFullYear()} Anirbaan Sarkar & Anonically22. Crafted with <span className="text-[#8b5cf6]">💜</span>
+            <p className="text-gray-500 text-sm font-semibold tracking-tight flex items-center">
+              © {new Date().getFullYear()} Anirbaan Sarkar & Anonically22. Crafted with <span className="text-[#8b5cf6] mx-1">💜</span>
+              <a href="https://portfolio1-orcin-theta.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4 text-[10px] text-gray-300 hover:text-gray-900 transition-colors uppercase tracking-[0.2em] font-black" title="Legacy Portfolio">v1</a>
             </p>
           </div>
           

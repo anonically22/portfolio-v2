@@ -23,16 +23,16 @@ const Research = () => {
     <section id="research" style={{ borderBottom: B }}>
       {/* Header Row */}
       <div style={{ borderBottom: B }}>
-        <div className="section-container" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
-          <h2 style={{ fontSize: '1.375rem', fontWeight: 500, letterSpacing: '-0.03em' }}>
+        <div className="section-container" style={{ paddingTop: '3rem', paddingBottom: '2.5rem' }}>
+          <h2 style={{ fontFamily: 'Poiret One, system-ui, sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }}>
             Research &amp; Publications
           </h2>
         </div>
       </div>
 
       {/* Content */}
-      <div className="section-container" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem', marginLeft: 'calc(100% / 3)' }}>
+      <div className="section-container" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <div className="flex flex-col gap-12 lg:gap-16 ml-0 lg:ml-[calc(100%/3)]">
           {researchEntries.map((entry, idx) => (
             <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {entry.link ? (
@@ -78,6 +78,8 @@ const Research = () => {
                   lineHeight: 1.5,
                   color: '#444',
                   marginTop: '0.5rem',
+                  textAlign: 'justify',
+                  hyphens: 'auto'
                 }}
               >
                 {entry.description}

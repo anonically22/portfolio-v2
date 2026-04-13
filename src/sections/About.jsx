@@ -8,18 +8,18 @@ const About = () => {
     <section id="about" style={{ borderBottom: B }}>
       {/* Header Row */}
       <div style={{ borderBottom: B }}>
-        <div className="section-container" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
-          <h2 style={{ fontSize: '1.375rem', fontWeight: 500, letterSpacing: '-0.03em' }}>About</h2>
+        <div className="section-container" style={{ paddingTop: '3rem', paddingBottom: '2.5rem' }}>
+          <h2 style={{ fontFamily: 'Poiret One, system-ui, sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }}>About</h2>
         </div>
       </div>
 
       {/* Content */}
-      <div className="section-container" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '4rem', alignItems: 'center' }}>
+      <div className="section-container" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <div className="flex flex-col md:grid md:grid-cols-[2fr_1fr] gap-12 md:gap-16 items-center">
 
           {/* Bio */}
           <div style={{ position: 'relative' }}>
-            <p style={{ fontSize: 'clamp(22px, 2.5vw, 40px)', fontWeight: 500, lineHeight: 1.3, letterSpacing: '-0.04em' }}>
+            <p style={{ fontSize: 'clamp(22px, 2.5vw, 40px)', fontWeight: 300, lineHeight: 1.35, letterSpacing: '-0.02em', color: '#333', textAlign: 'justify', hyphens: 'auto' }}>
               Hi, I'm Anirbaan Sarkar, a Computer Science student at Techno India University. I'm deeply passionate about the intersection of high-performance logic and seamless human-centric design. While my foundation is in robust backend systems and full-stack architecture, my true edge lies in obsessive UI/UX execution and bringing digital experiences to life. Beyond shipping production-ready interfaces, I actively research cybersecurity, diving into vulnerability assessment to ensure the web remains as secure as it is beautiful.
             </p>
             {/* Black dot indicator */}
