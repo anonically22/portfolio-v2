@@ -1,36 +1,31 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import CustomCursor from './CustomCursor';
 
 const Layout = ({ children }) => {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiff: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
   return (
-    <div className="min-h-screen flex flex-col relative transition-colors duration-500">
-      {/* Background Noise Texture */}
-      <div className="noise" />
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden" style={{ backgroundColor: '#f2f1ec', color: '#1a1a1a' }}>
+      {/* Background Vertical Grid Lines - 7 lines = 6 columns */}
+      <div className="v-grid">
+        {[...Array(7)].map((_, i) => (
+          <div key={i} className="v-line" />
+        ))}
+      </div>
 
-      {/* Global Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-blue-600 z-[100] origin-left"
-        style={{ scaleX }}
-      />
+      <CustomCursor />
 
       <Navbar />
-      
-      <main className="flex-grow pt-24 pb-16 overflow-hidden">
+
+      <main className="flex-grow z-10 pt-[72px]">
         <AnimatePresence mode="wait">
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+            key="page-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             {children}
           </motion.div>

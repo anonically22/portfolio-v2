@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Cpu, Layers, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, Cpu, Layers, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { projects } from '../utils/projectData';
 
 const Section = ({ title, children, icon: Icon }) => (
@@ -10,19 +10,19 @@ const Section = ({ title, children, icon: Icon }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.8 }}
-    className="py-12 border-b border-gray-100 dark:border-gray-900 last:border-0"
+    className="py-16 border-b border-divider-light dark:border-divider-dark last:border-0"
   >
-    <div className="flex items-center gap-3 mb-8">
-      {Icon && <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600"><Icon size={24} /></div>}
-      <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50">
+    <div className="flex items-center gap-3 mb-10">
+      <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase">
         {title}
       </h2>
     </div>
-    <div className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed space-y-4">
+    <div className="text-gray-600 dark:text-gray-400 text-xl leading-relaxed space-y-6 font-medium">
       {children}
     </div>
   </motion.section>
 );
+
 
 const ProjectDetail = () => {
   const { slug } = useParams();
@@ -49,7 +49,7 @@ const ProjectDetail = () => {
 
   return (
     <div className="pt-32 pb-20">
-      <div className="container-custom max-w-4xl">
+      <div className="section-container mx-auto max-w-5xl">
         {/* Navigation */}
         <motion.div
            initial={{ opacity: 0, x: -10 }}
@@ -57,52 +57,68 @@ const ProjectDetail = () => {
            transition={{ duration: 0.5 }}
         >
           <Link 
-            to="/" 
-            className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-blue-600 transition-colors mb-12 group"
+            to="/#projects" 
+            className="inline-flex items-center gap-2 text-sm font-bold text-gray-500 hover:text-blue-600 transition-colors mb-16 group pt-8"
           >
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
-            BACK TO DASHBOARD
+            BACK TO HOMEPAGE
           </Link>
         </motion.div>
 
         {/* Hero Section */}
-        <header className="mb-16">
-          <motion.h1 
+        <header className="mb-24 flex flex-col items-start space-y-10">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tighter text-gray-900 dark:text-gray-50 mb-6 leading-[1.1]"
+            transition={{ duration: 0.8 }}
+            className="flex flex-col items-start gap-6 w-full"
           >
-            {project.title}
-          </motion.h1>
+            <div>
+              <span className="text-[12px] font-bold uppercase tracking-[0.4em] text-blue-600 bg-blue-50/50 px-4 py-2 rounded-full inline-block">
+                PROJECT CASE STUDY / {project.techStack?.[0]}
+              </span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-gray-50 leading-tight uppercase block">
+              {project.title}
+            </h1>
+          </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="flex items-center gap-4"
+            className="flex flex-col md:flex-row md:items-start justify-between gap-8 border-t border-divider-light dark:border-divider-dark pt-10 w-full"
           >
-            <span className="px-4 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-bold uppercase tracking-widest">
-              Case Study
-            </span>
-            <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-400 font-medium italic">
-              — {project.description}
+            <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-400 font-medium tracking-tight max-w-2xl leading-relaxed">
+              {project.description}
             </p>
+            {project.liveUrl && (
+              <a 
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full font-bold hover:scale-105 transition transform shadow-lg whitespace-nowrap"
+              >
+                Visit Live Site <ArrowUpRight size={18} />
+              </a>
+            )}
           </motion.div>
         </header>
 
         {/* Featured Image */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="aspect-video w-full overflow-hidden rounded-[2.5rem] shadow-2xl mb-24 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="aspect-video w-full overflow-hidden border border-divider-light dark:border-divider-dark mb-32 bg-gray-100 dark:bg-gray-800"
         >
           <img 
             src={project.image} 
             alt={project.title} 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover grayscale opacity-80"
           />
         </motion.div>
+
 
         {/* Content Structure */}
         <div className="space-y-4">

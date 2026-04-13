@@ -1,52 +1,54 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import profilePic from '../assets/projects/anirbaan.jpg';
 
-const highlights = [
-  { label: "AI/ML Research Intern", value: "Leonard Corporate Solutions" },
-  { label: "Government IP Intern", value: "Ministry of IT" },
-  { label: "IEEE Publication", value: "REACS 2025" },
-  { label: "B.Tech Candidate", value: "2022–2026" }
-];
+const B = '1px solid #1a1a1a';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 border-t border-gray-100 dark:border-gray-900">
-      <div className="container-custom">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-          className="flex flex-col lg:flex-row gap-16 items-start"
-        >
-          {/* Left Column: Paragraph */}
-          <div className="lg:w-1/2">
-            <h2 className="text-sm font-bold tracking-[0.2em] text-blue-600 mb-6 uppercase">About Me</h2>
-            <div className="space-y-6">
-              <p className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-gray-50 leading-tight">
-                AI-driven full-stack developer building <span className="text-blue-600">intelligent</span>, user-focused digital products.
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
-                I focus on creating systems that combine clean UI, strong engineering, and real-world functionality. My work spans AI-powered tools, full-stack platforms, and research-driven development.
-              </p>
-            </div>
+    <section id="about" style={{ borderBottom: B }}>
+      {/* Header Row */}
+      <div style={{ borderBottom: B }}>
+        <div className="section-container" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.375rem', fontWeight: 500, letterSpacing: '-0.03em' }}>About</h2>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="section-container" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '4rem', alignItems: 'center' }}>
+
+          {/* Bio */}
+          <div style={{ position: 'relative' }}>
+            <p style={{ fontSize: 'clamp(22px, 2.5vw, 40px)', fontWeight: 500, lineHeight: 1.3, letterSpacing: '-0.04em' }}>
+              Hi, I'm Anirbaan Sarkar, a Computer Science student at Techno India University. I'm deeply passionate about the intersection of high-performance logic and seamless human-centric design. While my foundation is in robust backend systems and full-stack architecture, my true edge lies in obsessive UI/UX execution and bringing digital experiences to life. Beyond shipping production-ready interfaces, I actively research cybersecurity, diving into vulnerability assessment to ensure the web remains as secure as it is beautiful.
+            </p>
+            {/* Black dot indicator */}
+            <div
+              style={{
+                width: '12px',
+                height: '12px',
+                borderRadius: '50%',
+                backgroundColor: '#1a1a1a',
+                position: 'absolute',
+                right: '-2.5rem',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                display: 'none',
+              }}
+              className="md:block"
+            />
           </div>
 
-          {/* Right Column: Highlights */}
-          <div className="lg:w-1/2 w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {highlights.map((item, index) => (
-                <div 
-                  key={index} 
-                  className="p-6 rounded-2xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800"
-                >
-                  <p className="text-sm font-medium text-gray-400 uppercase tracking-tighter mb-1">{item.label}</p>
-                  <p className="text-xl font-bold text-gray-900 dark:text-gray-100 leading-tight">{item.value}</p>
-                </div>
-              ))}
-            </div>
+          {/* Portrait */}
+          <div style={{ height: '500px', overflow: 'hidden', backgroundColor: '#e5e4e0' }}>
+            <img
+              src={profilePic}
+              alt="Portrait"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
           </div>
-        </motion.div>
+
+        </div>
       </div>
     </section>
   );

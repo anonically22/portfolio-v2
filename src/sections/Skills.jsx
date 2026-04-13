@@ -1,69 +1,72 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { Monitor, PenTool, MousePointer2, Share2 } from 'lucide-react';
 
-const skillCategories = [
+const B = '1px solid #1a1a1a';
+
+const services = [
   {
-    title: "Frontend",
-    skills: ["React", "Tailwind CSS", "Framer Motion"]
+    Icon: Monitor,
+    title: 'Web Architecture',
+    description: 'Building robust and scalable frontend ecosystems using performance-driven methodologies and modern React patterns.',
   },
   {
-    title: "Backend",
-    skills: ["Node.js", "Supabase", "PostgreSQL"]
+    Icon: PenTool,
+    title: 'AI Integration',
+    description: 'Deploying intelligent machine learning integrations for modern data-driven digital products.',
   },
   {
-    title: "AI / Data",
-    skills: ["TensorFlow", "Pandas"]
+    Icon: MousePointer2,
+    title: 'Full-Stack Development',
+    description: 'End-to-end development from database schemas to polished user interfaces with Supabase & React.',
   },
   {
-    title: "Languages",
-    skills: ["Python", "JavaScript", "C++", "Java", "SQL"]
+    Icon: Share2,
+    title: 'System Design',
+    description: 'Architecting scalable software systems with clean separation of concerns and efficient data flows.',
   },
-  {
-    title: "Tools",
-    skills: ["Git", "AWS", "Vercel", "Vite"]
-  }
 ];
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20 border-t border-gray-100 dark:border-gray-900">
-      <div className="container-custom">
-        <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.8 }}
-        >
-          <div className="mb-12">
-            <h2 className="text-sm font-bold tracking-[0.2em] text-blue-600 mb-6 uppercase">Technical Arsenal</h2>
-            <div className="w-12 h-1 bg-blue-600 rounded-full" />
+    <section style={{ borderBottom: B }}>
+      {/* Header Row */}
+      <div style={{ borderBottom: B }}>
+        <div className="section-container" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.375rem', fontWeight: 500, letterSpacing: '-0.03em' }}>Services</h2>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="section-container" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '4rem' }}>
+
+          {/* Left intro */}
+          <div>
+            <p style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 500, lineHeight: 1.3, letterSpacing: '-0.03em' }}>
+              I am dedicated to expanding my knowledge and expertise in software engineering. If you like my portfolio, please reach out!
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8">
-            {skillCategories.map((category, idx) => (
-              <div key={idx} className="space-y-6">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-50 uppercase tracking-widest text-xs opacity-60">
-                  {category.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ 
-                        scale: 1.05, 
-                        borderColor: "rgba(37, 99, 235, 0.5)",
-                        boxShadow: "0 0 15px rgba(37, 99, 235, 0.1)"
-                      }}
-                      className="px-4 py-2 bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 rounded-xl text-sm font-medium text-gray-700 dark:text-gray-300 transition-all cursor-default shadow-sm"
-                    >
-                      {skill}
-                    </motion.div>
-                  ))}
+          {/* Right 2x2 grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem 4rem' }}>
+            {services.map(({ Icon, title, description }, idx) => (
+              <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                <div style={{ width: '64px', height: '64px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Icon size={44} strokeWidth={1} />
+                </div>
+                <div>
+                  <h4 style={{ fontSize: 'clamp(20px, 2vw, 28px)', fontWeight: 500, letterSpacing: '-0.03em', marginBottom: '0.75rem' }}>
+                    {title}
+                  </h4>
+                  <p style={{ fontSize: '1.125rem', fontWeight: 500, lineHeight: 1.45, color: '#444' }}>
+                    {description}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
-        </motion.div>
+
+        </div>
       </div>
     </section>
   );

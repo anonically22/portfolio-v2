@@ -1,133 +1,65 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 
 const ProjectCard = ({ project, index }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const isEven = index % 2 === 0;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center py-24 border-b border-gray-100 dark:border-gray-900 last:border-0`}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative grid grid-cols-1 md:grid-cols-12 gap-12 items-center py-20 border-b border-divider-light dark:border-divider-dark first:border-t"
     >
-      {/* Image Side */}
-      <div className="w-full lg:w-3/5 relative">
-        {/* Ambient Glow behind image on hover */}
-        <div 
-          className={`absolute -inset-4 bg-blue-600/10 rounded-3xl blur-[80px] transition-opacity duration-700 pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-0'}`}
-        />
-        
-        <Link to={`/project/${project.slug}`}>
-          <motion.div 
-            className="relative overflow-hidden rounded-3xl shadow-2xl bg-gray-100 dark:bg-gray-800 cursor-pointer ring-1 ring-black/5 dark:ring-white/5"
-            animate={{ 
-              scale: isHovered ? 1.02 : 1,
-            }}
-            transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-          >
-            <motion.img 
-              src={project.image} 
-              alt={project.title}
-              animate={{ 
-                scale: isHovered ? 1.05 : 1,
-                filter: isHovered ? 'brightness(1.05)' : 'brightness(1)'
-              }}
-              transition={{ duration: 0.8 }}
-              className="w-full h-[320px] md:h-[480px] object-cover"
-            />
-            {/* Overlay for depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent pointer-events-none opacity-40" />
-            
-            {/* Glassy Tag */}
-            <div className="absolute top-6 right-6 glass px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest text-gray-900 dark:text-gray-100">
-              Technical Case
-            </div>
-          </motion.div>
-        </Link>
-      </div>
-
       {/* Content Side */}
-      <div className="w-full lg:w-2/5 space-y-8">
-        <div className="space-y-3">
-          <Link to={`/project/${project.slug}`}>
-            <motion.h3 
-              className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tight cursor-pointer leading-[1.1]"
-              animate={{ x: isHovered ? 8 : 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 25 }}
-            >
-              {project.title}
-            </motion.h3>
-          </Link>
-          <div className="flex items-center gap-3">
-            <span className="h-0.5 w-8 bg-blue-600 rounded-full" />
-            <p className="text-xl text-blue-600 dark:text-blue-400 font-bold tracking-tight">
-              {project.description}
-            </p>
+      <div className="md:col-span-5 space-y-8 order-2 md:order-1">
+        <div className="space-y-4">
+          <div className="flex gap-2">
+            {project.stack.map((item, i) => (
+              <span key={i} className="text-[10px] font-bold uppercase tracking-widest text-blue-600 border border-blue-600/30 px-2 py-1 rounded">
+                {item}
+              </span>
+            ))}
           </div>
+          <h3 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-none">
+            {project.title}
+          </h3>
+          <p className="text-xl text-gray-500 font-medium">
+            {project.description}
+          </p>
         </div>
 
-        <div className="relative">
-          <AnimatePresence mode="wait">
-            {isHovered ? (
-              <motion.div
-                key="hovered"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -5 }}
-                transition={{ duration: 0.4 }}
-                className="space-y-6"
-              >
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg font-medium">
-                  {project.feature}
-                </p>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6, duration: 0.5 }}
-                  className="p-6 glass rounded-2xl border-l-4 border-blue-500 italic text-sm text-gray-700 dark:text-gray-300 shadow-xl"
-                >
-                  {project.technical}
-                </motion.div>
-
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.stack.map((tech, i) => (
-                    <span key={i} className="px-4 py-2 glass rounded-xl text-xs font-mono font-bold shadow-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ) : (
-              <motion.div
-                 key="static"
-                 initial={{ opacity: 0 }}
-                 animate={{ opacity: 1 }}
-                 className="text-gray-400 dark:text-gray-600 italic font-medium"
-              >
-                Hover to reveal system architecture and tech stack.
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        <p className="text-gray-400 dark:text-gray-600 leading-relaxed max-w-sm">
+          {project.feature}
+        </p>
 
         <Link
           to={`/project/${project.slug}`}
-          className="inline-flex items-center gap-2 text-gray-900 dark:text-gray-100 font-extrabold group bg-transparent border-none p-0 pt-4"
+          className="inline-flex items-center gap-4 text-sm font-black tracking-widest uppercase group/link"
         >
-          <span className="relative text-lg">
-            View Deep Dive
-            <span className="absolute -bottom-1 left-0 w-0 h-1 bg-blue-600 group-hover:w-full transition-all duration-300 rounded-full" />
-          </span>
-          <ArrowUpRight size={24} className="group-hover:rotate-45 transition-transform text-blue-600" />
+          Explore Case Study
+          <div className="w-10 h-10 rounded-full border border-divider-light dark:border-divider-dark flex items-center justify-center group-hover/link:bg-blue-600 group-hover/link:text-white transition-all">
+            <ArrowUpRight size={20} />
+          </div>
         </Link>
+      </div>
+
+      {/* Image Side */}
+      <div className="md:col-span-1" /> {/* Spacer */}
+      
+      <div className="md:col-span-6 order-1 md:order-2">
+        <motion.div 
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="relative overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-gray-900 border border-divider-light dark:border-divider-dark rounded-sm"
+        >
+          <img 
+            src={project.image} 
+            alt={project.title}
+            className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
+          />
+        </motion.div>
       </div>
     </motion.div>
   );

@@ -1,45 +1,93 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+
+const B = '1px solid #1a1a1a';
 
 const researchEntries = [
   {
-    title: "Secure Key Association, Forger Identification and Dealer Forgery Detection for a (t,n) Threshold Setup — IEEE REACS 2025",
-    description: "Research focused on cryptographic security in threshold secret sharing systems, specifically detecting forgery attempts and strengthening key negotiation protocols."
+    title: 'Secure Key Association, Forger Identification and Dealer Forgery Detection for a (t,n) Threshold Setup',
+    subtitle: 'IEEE REACS 2025 — Published',
+    link: 'https://ieeexplore.ieee.org/document/11413338',
+    description:
+      'Research focused on cryptographic security in threshold secret sharing systems, detecting forgery attempts in secret dealer protocols and strengthening the robustness of multi-party key setups.',
   },
   {
-    title: "Advanced Cyber Security Threat Detection and Mitigation Strategies — Ongoing (2025)",
-    description: "Analysis of modern cyberattack vectors and development of structured mitigation frameworks for system resilience."
-  }
+    title: 'Advanced Cyber Security Threat Detection and Mitigation Strategies',
+    subtitle: 'Ongoing Research (2025)',
+    description:
+      'Analysis of modern cyberattack vectors and development of structured mitigation frameworks, focusing on real-time detection systems and defensive architectures for improved system resilience.',
+  },
 ];
 
 const Research = () => {
   return (
-    <section id="research" className="py-20 border-t border-gray-100 dark:border-gray-900">
-      <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        >
-          <div className="mb-12">
-            <h2 className="text-sm font-bold tracking-[0.2em] text-blue-600 mb-6 uppercase">Research</h2>
-            <div className="w-12 h-1 bg-blue-600 rounded-full" />
-          </div>
+    <section id="research" style={{ borderBottom: B }}>
+      {/* Header Row */}
+      <div style={{ borderBottom: B }}>
+        <div className="section-container" style={{ paddingTop: '1.5rem', paddingBottom: '1.5rem' }}>
+          <h2 style={{ fontSize: '1.375rem', fontWeight: 500, letterSpacing: '-0.03em' }}>
+            Research &amp; Publications
+          </h2>
+        </div>
+      </div>
 
-          <div className="space-y-12 max-w-4xl">
-            {researchEntries.map((entry, index) => (
-              <div key={index} className="group">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-50 mb-4 group-hover:text-blue-600 transition-colors leading-tight">
+      {/* Content */}
+      <div className="section-container" style={{ paddingTop: '4rem', paddingBottom: '4rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem', marginLeft: 'calc(100% / 3)' }}>
+          {researchEntries.map((entry, idx) => (
+            <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {entry.link ? (
+                <a href={entry.link} target="_blank" rel="noreferrer" className="hover:text-blue-600 transition-colors">
+                  <h3
+                    style={{
+                      fontSize: 'clamp(24px, 3vw, 40px)',
+                      fontWeight: 500,
+                      lineHeight: 1.1,
+                      letterSpacing: '-0.04em',
+                    }}
+                  >
+                    {entry.title} ↗
+                  </h3>
+                </a>
+              ) : (
+                <h3
+                  style={{
+                    fontSize: 'clamp(24px, 3vw, 40px)',
+                    fontWeight: 500,
+                    lineHeight: 1.1,
+                    letterSpacing: '-0.04em',
+                  }}
+                >
                   {entry.title}
                 </h3>
-                <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
-                  {entry.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
+              )}
+              <span
+                style={{
+                  fontSize: '1.125rem',
+                  fontWeight: 600,
+                  fontStyle: 'italic',
+                  opacity: 0.45,
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                {entry.subtitle}
+              </span>
+              <p
+                style={{
+                  fontSize: '1.25rem',
+                  fontWeight: 500,
+                  lineHeight: 1.5,
+                  color: '#444',
+                  marginTop: '0.5rem',
+                }}
+              >
+                {entry.description}
+              </p>
+              {idx < researchEntries.length - 1 && (
+                <div style={{ height: '1px', backgroundColor: '#d8d7d3', marginTop: '1rem' }} />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
