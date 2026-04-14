@@ -6,35 +6,19 @@ import CustomCursor from './CustomCursor';
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col relative overflow-x-hidden" style={{ backgroundColor: '#f2f1ec', color: '#1a1a1a' }}>
-      {/* Background Vertical Grid Lines - 7 lines = 6 columns */}
-      <div className="v-grid">
-        {[...Array(7)].map((_, i) => (
-          <div key={i} className="v-line" />
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden bg-[#F2F2F2] text-[#121212]">
+      {/* 12-Column Grid Lines overlay */}
+      <div className="v-grid-overlay">
+        {[...Array(13)].map((_, i) => (
+          <div key={i} className="v-grid-line" />
         ))}
       </div>
 
       <CustomCursor />
-
       <Navbar />
 
-      {/* Mobile Notice */}
-      <div className="md:hidden sticky top-[72px] z-[90] w-full bg-[#1a1a1a] text-[#f2f1ec] text-center text-xs sm:text-sm py-2.5 px-4 shadow-sm font-medium tracking-wide uppercase">
-        Site looks best on desktop
-      </div>
-
-      <main className="flex-grow z-10 pt-[72px] md:pt-[72px]">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key="page-content"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            {children}
-          </motion.div>
-        </AnimatePresence>
+      <main className="flex-grow z-10">
+        {children}
       </main>
 
       <Footer />

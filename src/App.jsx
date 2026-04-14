@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Layout from './components/Layout';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Hero from './sections/Hero';
@@ -7,6 +8,7 @@ import FeaturedProjects from './sections/FeaturedProjects';
 import Research from './sections/Research';
 import Skills from './sections/Skills';
 import ProjectDetail from './pages/ProjectDetail';
+import LoadingScreen from './components/LoadingScreen';
 
 const Home = () => (
   <>
@@ -21,6 +23,7 @@ const Home = () => (
 function App() {
   return (
     <Router>
+      <LoadingScreen />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

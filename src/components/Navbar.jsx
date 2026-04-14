@@ -1,55 +1,63 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
-  return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-[100]"
-      style={{
-        borderBottom: '1px solid #1a1a1a',
-        backgroundColor: 'rgba(242, 241, 236, 0.92)',
-        backdropFilter: 'blur(12px)',
-      }}
-    >
-      <div className="section-container">
-        <div style={{ height: '72px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', alignItems: 'center' }}>
+  const [scrolled, setScrolled] = useState(false);
 
-          {/* Left: Name */}
-          <div>
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Works', href: '#projects' },
+    { name: 'Expertise', href: '#skills' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
+  const scrollToSection = (e, href) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <nav className={`fixed top-0 left-0 w-full z-[80] transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
+      <div className="section-container">
+        <div className="grid grid-cols-12 items-center">
+          {/* Logo */}
+          <div className="col-start-2 col-span-2">
             <a 
               href="/" 
               onClick={(e) => {
-                if(window.location.pathname === '/') {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="flex items-center hover:opacity-60 transition-opacity"
+              className="flex items-center gap-1 group"
             >
-              <span style={{ fontSize: '38px', lineHeight: 1, transform: 'translateY(9px)', display: 'inline-block' }} className="font-sans mr-[2px] font-medium">*</span>
-              <span style={{ fontSize: '32px', lineHeight: 1, fontFamily: 'Poiret One, system-ui, sans-serif', display: 'inline-block' }} className="font-bold tracking-tight">as</span>
+              <span className="text-3xl font-sans font-medium">*</span>
+              <span className="text-xl font-bold tracking-tighter uppercase" style={{ fontFamily: 'Inter, sans-serif' }}>AS</span>
             </a>
           </div>
 
-          {/* Center: Links */}
-          <div className="hidden md:flex justify-center gap-10 text-[17px] font-medium tracking-tight">
-            <a href="/#about" className="hover:opacity-60 transition-opacity">About</a>
-            <a href="/#projects" className="hover:opacity-60 transition-opacity">Projects</a>
-            <a href="/#contact" className="hover:opacity-60 transition-opacity">Contact</a>
+          {/* Nav Links */}
+          <div className="col-start-7 col-span-5 flex justify-end gap-12">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => scrollToSection(e, link.href)}
+                className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-opacity"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
-
-          {/* Right: Asterisk */}
-          <div className="flex justify-end">
-            <motion.span
-              whileHover={{ rotate: 180 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="text-2xl cursor-pointer select-none"
-              style={{ display: 'inline-block' }}
-            >
-              *
-            </motion.span>
-          </div>
-
         </div>
       </div>
     </nav>

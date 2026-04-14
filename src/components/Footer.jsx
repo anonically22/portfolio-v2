@@ -29,118 +29,62 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contact" style={{ backgroundColor: '#f2f1ec', color: '#1a1a1a' }}>
-      
-      {/* --- OLD CONTACT SECTION --- */}
-      {/* Header Row */}
-      <div style={{ borderTop: B, borderBottom: B }}>
-        <div className="section-container" style={{ paddingTop: '3rem', paddingBottom: '2.5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center' }}>
-            <h2 style={{ fontFamily: 'Poiret One, system-ui, sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }}>Contact</h2>
-            <div style={{ textAlign: 'right', fontSize: '1.125rem', fontWeight: 500 }}>
-              Available for remote work
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="section-container" style={{ paddingTop: '4rem', paddingBottom: '6rem' }}>
-        <div className="flex flex-col lg:flex-row gap-16 items-end">
-          {/* Left: CTA */}
-          <div className="flex-1">
-            <h2
-              style={{
-                fontFamily: 'Poiret One, system-ui, sans-serif',
-                fontSize: 'clamp(52px, 8vw, 120px)',
-                fontWeight: 600,
-                letterSpacing: '-0.04em',
-                lineHeight: 0.95,
-                marginBottom: '2rem',
-              }}
-            >
-              Let's talk!
+    <footer className="bg-[#FAF9F6] text-[#1a1a1a] border-t border-black/5">
+      <div className="section-container py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-end">
+          {/* Left: Huge Headline */}
+          <div className="space-y-8">
+            <h2 className="text-7xl md:text-[8vw] font-serif font-bold tracking-tighter leading-[0.85] italic opacity-10">
+              Get in <br /> Touch.
             </h2>
             <a
               href="mailto:anirbaandsarkar@gmail.com"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '1rem',
-                fontSize: 'clamp(18px, 2.5vw, 32px)',
-                fontWeight: 500,
-                letterSpacing: '-0.03em',
-                textDecoration: 'none',
-                color: '#1a1a1a',
-                transition: 'opacity 200ms',
-              }}
-              className="hover:opacity-60"
+              className="inline-flex items-center gap-4 text-3xl md:text-5xl font-serif font-bold tracking-tight hover:opacity-50 transition-all group"
             >
               anirbaandsarkar@gmail.com
-              <ArrowUpRight size={28} />
+              <ArrowUpRight size={40} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </a>
           </div>
 
-          {/* Right: Social Links */}
-          <div className="flex-1 w-full" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {[
-              { label: 'Github', href: 'https://github.com' },
-              { label: 'Linkedin', href: 'https://linkedin.com' },
-              { label: 'Twitter', href: 'https://twitter.com' },
-            ].map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  borderBottom: '1px solid rgba(26,26,26,0.2)',
-                  paddingBottom: '0.75rem',
-                  fontSize: '1.375rem',
-                  fontWeight: 500,
-                  letterSpacing: '-0.03em',
-                  textDecoration: 'none',
-                  color: '#1a1a1a',
-                  transition: 'opacity 200ms',
-                }}
-                className="hover:opacity-60"
+          {/* Right: Social & Info */}
+          <div className="flex flex-col gap-12 text-right items-end">
+            <div className="flex gap-8 text-xs font-bold uppercase tracking-[0.2em] opacity-40">
+              <a href="https://github.com/anirbaan-sarkar" target="_blank" rel="noreferrer" className="hover:opacity-100 transition-opacity">Github</a>
+              <a href="https://linkedin.com/in/anirbaan-sarkar" target="_blank" rel="noreferrer" className="hover:opacity-100 transition-opacity">Linkedin</a>
+              <a href="https://twitter.com/anirbaansarkar" target="_blank" rel="noreferrer" className="hover:opacity-100 transition-opacity">Twitter</a>
+            </div>
+            
+            <div className="flex flex-col items-end gap-2">
+               <button 
+                onClick={scrollToTop}
+                className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center hover:bg-black hover:text-white transition-all group"
+                title="Back to Top"
               >
-                {label}
-                <ArrowUpRight size={18} style={{ opacity: 0.5 }} />
-              </a>
-            ))}
+                <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* --- NEW FOOTER DESIGN --- */}
-      <div className="py-10 px-8 md:px-16 border-t border-[rgba(26,26,26,0.1)]">
-        <div className="section-container">
-
-        {/* Bottom Bar: Copyright and Back to top */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-[rgba(26,26,26,0.1)]">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center">
-              <span style={{ fontSize: '32px', lineHeight: 1, transform: 'translateY(8px)', display: 'inline-block' }} className="font-sans mr-[2px] font-medium">*</span>
-              <span style={{ fontSize: '28px', lineHeight: 1, fontFamily: 'Poiret One, system-ui, sans-serif', display: 'inline-block' }} className="font-bold tracking-tight">as</span>
-            </span>
-            <p className="text-gray-500 text-sm font-semibold tracking-tight flex items-center">
-              © {new Date().getFullYear()} Anirbaan Sarkar & Anonically22. Crafted with <span className="text-[#8b5cf6] mx-1">💜</span>
-              <a href="https://portfolio1-orcin-theta.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4 text-[10px] text-gray-300 hover:text-gray-900 transition-colors uppercase tracking-[0.2em] font-black" title="Legacy Portfolio">v1</a>
+        {/* Bottom Bar */}
+        <div className="mt-24 pt-12 border-t border-black/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="flex items-center gap-6">
+            <div className="flex items-center">
+              <span className="text-3xl font-sans font-medium mr-0.5">*</span>
+              <span className="text-2xl font-bold tracking-tight" style={{ fontFamily: 'Poiret One, system-ui, sans-serif' }}>as</span>
+            </div>
+            <div className="h-4 w-[1px] bg-black/10 hidden md:block" />
+            <p className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-30">
+              © {new Date().getFullYear()} Anirbaan Sarkar
             </p>
           </div>
-          
-          <button 
-            onClick={scrollToTop}
-            className="flex items-center gap-2 px-5 py-2.5 text-xs font-black uppercase tracking-[0.2em] text-gray-900 border border-gray-300 rounded-full hover:bg-gray-900 hover:text-white transition-colors group"
-          >
-            Back To Top <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" strokeWidth={3} />
-          </button>
+
+          <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold opacity-40">
+            <span>Powered by synergy & energy from tea</span>
+            <span className="text-lg">☕</span>
+            <a href="https://portfolio1-orcin-theta.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4 opacity-50 hover:opacity-100 transition-all font-black">LEGACY v1</a>
+          </div>
         </div>
-      </div>
       </div>
     </footer>
   );
