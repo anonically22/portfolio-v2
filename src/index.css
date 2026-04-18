@@ -15,6 +15,13 @@
     color: #1a1a1a;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 16px; /* Minimum for mobile */
+  }
+
+  @media (min-width: 641px) {
+    body {
+      font-size: 18px;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -22,6 +29,29 @@
     letter-spacing: -0.01em;
     line-height: 1.1;
     font-weight: 600;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Prevent CLS for common image aspects */
+  .aspect-video-placeholder {
+    aspect-ratio: 16 / 9;
+    background-color: #e5e4df;
+  }
+
+  /* Accessibility & Performance: Touch Targets */
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+    transition: transform 200ms ease-out, opacity 200ms ease-out;
+  }
+
+  button:hover, a.cta-button:hover {
+    transform: translateY(-2px);
   }
 }
 

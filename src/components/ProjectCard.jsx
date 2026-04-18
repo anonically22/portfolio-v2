@@ -34,15 +34,24 @@ const ProjectCard = ({ project, index }) => {
           {project.feature}
         </p>
 
-        <Link
-          to={`/project/${project.slug}`}
-          className="inline-flex items-center gap-4 text-sm font-black tracking-widest uppercase group/link"
-        >
-          Explore Case Study
-          <div className="w-10 h-10 rounded-full border border-divider-light dark:border-divider-dark flex items-center justify-center group-hover/link:bg-blue-600 group-hover/link:text-white transition-all">
-            <ArrowUpRight size={20} />
-          </div>
-        </Link>
+        <div className="flex flex-wrap gap-4 pt-4">
+          <a
+            href={project.liveUrl || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2 bg-[#1a1a1a] text-white rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-black transition-all"
+          >
+            Visit Live
+          </a>
+          <a
+            href={project.githubUrl || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2 border border-[#1a1a1a] text-[#1a1a1a] rounded-sm text-sm font-bold uppercase tracking-widest hover:bg-[#1a1a1a] hover:text-white transition-all"
+          >
+            GitHub
+          </a>
+        </div>
       </div>
 
       {/* Image Side */}
@@ -57,6 +66,10 @@ const ProjectCard = ({ project, index }) => {
           <img 
             src={project.image} 
             alt={project.title}
+            loading="lazy"
+            decoding="async"
+            width="800"
+            height="600"
             className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
           />
         </motion.div>

@@ -19,8 +19,8 @@ const About = () => {
 
           {/* Bio */}
           <div style={{ position: 'relative' }}>
-            <p style={{ fontSize: 'clamp(22px, 2.5vw, 40px)', fontWeight: 300, lineHeight: 1.35, letterSpacing: '-0.02em', color: '#333', textAlign: 'justify', hyphens: 'auto' }}>
-              Hi, I'm Anirbaan Sarkar, a Computer Science student at Techno India University. I'm deeply passionate about the intersection of high-performance logic and seamless human-centric design. While my foundation is in robust backend systems and full-stack architecture, my true edge lies in obsessive UI/UX execution and bringing digital experiences to life. Beyond shipping production-ready interfaces, I actively research cybersecurity, diving into vulnerability assessment to ensure the web remains as secure as it is beautiful.
+            <p style={{ fontSize: 'clamp(22px, 2.5vw, 32px)', fontWeight: 400, lineHeight: 1.35, letterSpacing: '-0.02em', color: '#333', textAlign: 'left' }}>
+              I'm Anirbaan Sarkar, a Full-Stack Product Designer and Developer building AI-powered products at the intersection of design and engineering. My edge lies in obsessive UI/UX execution and bringing intelligent digital experiences to life. Beyond shipping production-ready systems, I actively research cybersecurity and system architectures to ensure every product is as secure as it is beautiful.
             </p>
             {/* Black dot indicator */}
             <div
@@ -40,10 +40,13 @@ const About = () => {
           </div>
 
           {/* Portrait */}
-          <div style={{ height: '500px', overflow: 'hidden', backgroundColor: '#e5e4e0' }}>
+          <div style={{ height: '500px', overflow: 'hidden', backgroundColor: '#e5e4e0' }} className="w-full">
             <img
               src={profilePic}
-              alt="Portrait"
+              alt="Anirbaan Sarkar - Full-Stack Product Designer"
+              loading="lazy"
+              width="500"
+              height="500"
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
           </div>

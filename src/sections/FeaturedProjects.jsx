@@ -10,26 +10,32 @@ const projects = [
   {
     slug: 'second-look',
     title: 'Second Look',
-    description: 'An AI-powered UX analysis tool that evaluates digital interfaces and generates structured critique reports.',
+    description: 'AI-powered design critique engine that analyzes UIs in seconds. evaluates digital interfaces and generates structured critique reports.',
     tag: 'AI / UX Analysis',
     image: secondLookImg,
-    liveUrl: projectDataMap['second-look'].liveUrl
+    liveUrl: projectDataMap['second-look'].liveUrl,
+    githubUrl: 'https://github.com/anonically22/second-look',
+    tech: ['React', 'Node.js', 'Claude API', 'Tailwind']
   },
   {
     slug: 'substrack',
     title: 'SubsTrack',
-    description: 'Subscription intelligence tracking and finance pattern analysis platform built on Supabase.',
-    tag: 'Product Design',
+    description: 'Smart subscription tracker that shows where your money is going. Subscription intelligence and finance pattern analysis.',
+    tag: 'FinTech / AI',
     image: subsTrackImg,
-    liveUrl: projectDataMap['substrack'].liveUrl
+    liveUrl: projectDataMap['substrack'].liveUrl,
+    githubUrl: 'https://github.com/anonically22/substrack',
+    tech: ['React', 'Supabase', 'Framer Motion', 'Tailwind']
   },
   {
     slug: 'workbench',
     title: 'Workbench',
-    description: 'A unified browser-based toolkit with 25+ utilities for developers and designers.',
-    tag: 'UI Systems',
+    description: 'Collection of 27+ UI and developer tools built for productivity. Unified browser-based toolkit for modern workflows.',
+    tag: 'UI Systems / Tools',
     image: workbenchImg,
-    liveUrl: projectDataMap['workbench'].liveUrl
+    liveUrl: projectDataMap['workbench'].liveUrl,
+    githubUrl: 'https://github.com/anonically22/workbench',
+    tech: ['React', 'Vite', 'TypeScript', 'Tailwind']
   },
 ];
 
@@ -57,9 +63,39 @@ const FeaturedProjects = () => {
                   </h3>
                 </Link>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem' }}>
-                  <p style={{ fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.4, maxWidth: '360px', textAlign: 'justify', hyphens: 'auto' }}>
+                  <p style={{ fontSize: '1.1rem', fontWeight: 500, lineHeight: 1.4, maxWidth: '400px', textAlign: 'left', opacity: 0.8 }}>
                     {project.description}
                   </p>
+                  
+                  {/* Tech Badges */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t, i) => (
+                      <span key={i} className="text-[10px] uppercase font-bold tracking-widest px-2 py-1 bg-gray-200/50 rounded-sm">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Links */}
+                  <div className="flex gap-4 mt-2">
+                    <a 
+                      href={project.liveUrl} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="text-sm font-bold uppercase tracking-widest border-b border-black pb-1 hover:opacity-50 transition-opacity"
+                    >
+                      Visit Live
+                    </a>
+                    <a 
+                      href={project.githubUrl} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="text-sm font-bold uppercase tracking-widest border-b border-black pb-1 hover:opacity-50 transition-opacity"
+                    >
+                      GitHub
+                    </a>
+                  </div>
+
                   <span
                     style={{
                       display: 'inline-block',
@@ -69,6 +105,7 @@ const FeaturedProjects = () => {
                       fontSize: '1rem',
                       letterSpacing: '-0.02em',
                       width: 'fit-content',
+                      marginTop: '1rem'
                     }}
                   >
                     {project.tag}
@@ -77,10 +114,13 @@ const FeaturedProjects = () => {
               </div>
 
               {/* Right: Image */}
-              <a href={project.liveUrl} target="_blank" rel="noreferrer" style={{ overflow: 'hidden', border: '1px solid #e5e4e0' }} className="group cursor-pointer">
+              <a href={project.liveUrl} target="_blank" rel="noreferrer" style={{ overflow: 'hidden', border: '1px solid #e5e4e0' }} className="group cursor-pointer aspect-video md:aspect-auto">
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  width="1200"
+                  height="675"
                   style={{
                     width: '100%',
                     height: '100%',

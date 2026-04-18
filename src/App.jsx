@@ -8,6 +8,8 @@ import Research from './sections/Research';
 import Skills from './sections/Skills';
 import ProjectDetail from './pages/ProjectDetail';
 
+import Contact from './sections/Contact';
+
 const Home = () => (
   <>
     <Hero />
@@ -15,6 +17,7 @@ const Home = () => (
     <Skills />
     <About />
     <Research />
+    <Contact />
   </>
 );
 

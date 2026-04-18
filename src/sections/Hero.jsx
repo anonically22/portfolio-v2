@@ -29,12 +29,12 @@ const Hero = () => {
             className="text-clamp-hero flex items-center gap-2 md:gap-6"
           >
             <span style={{ fontSize: '1.1em', transform: 'translateY(4px)', display: 'inline-block' }}>*</span>
-            I'm Anirbaan Sarkar
+            Anirbaan Sarkar
           </motion.h1>
         </div>
 
         {/* Middle: Bio + Giant Lines */}
-        <div className="mt-12 md:mt-20 mb-10 w-full flex flex-col">
+        <div className="mt-12 md:mt-16 mb-10 w-full flex flex-col">
 
           <div className="flex flex-col md:flex-row md:items-end justify-between w-full">
             {/* Bio text – visible on desktop, aligned with 'A full-stack' */}
@@ -42,11 +42,20 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="hidden md:block w-[340px] pb-4"
+              className="hidden md:block w-[400px] pb-4"
             >
               <p className="text-xl font-medium tracking-tight leading-snug">
-                I am a Computer Science student blending rigorous engineering with striking aesthetics. I build systems that are natively intuitive, scalable, and obsessively designed.
+                I build AI-powered products at the intersection of design and engineering. 
+                Focused on React ecosystems and intelligent user interfaces.
               </p>
+              <div className="mt-6 flex gap-4">
+                <a 
+                  href="#projects" 
+                  className="px-6 py-2 bg-[#1a1a1a] text-white rounded-sm font-medium hover:bg-black transition-colors"
+                >
+                  Explore My Work ↓
+                </a>
+              </div>
             </motion.div>
 
             {/* Big Lines - Line 1 */}
@@ -54,9 +63,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-right md:text-right"
+              className="text-right"
             >
-              <span className="text-clamp-hero">A full-stack</span>
+              <span className="text-clamp-hero">Full-stack</span>
             </motion.div>
           </div>
 
@@ -68,11 +77,11 @@ const Hero = () => {
             style={{ marginTop: '-0.2em' }}
           >
             <span className="text-clamp-hero">
-              <TypewriterText words={['software engineer.', 'product designer.', 'system architect.']} pauseTime={3000} typingSpeed={80} deletingSpeed={50} />
+              <TypewriterText words={['product designer.', 'software engineer.', 'AI builder.']} pauseTime={3000} typingSpeed={80} deletingSpeed={50} />
             </span>
           </motion.div>
 
-          {/* Mobile bio */}
+          {/* Mobile bio & CTA */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -80,8 +89,16 @@ const Hero = () => {
             className="mt-8 md:hidden"
           >
             <p className="text-xl font-medium tracking-tight leading-snug">
-              I am a Computer Science student blending rigorous engineering with striking aesthetics. I build systems that are natively intuitive, scalable, and obsessively designed.
+              I build AI-powered products at the intersection of design and engineering.
             </p>
+            <div className="mt-6">
+              <a 
+                href="#projects" 
+                className="inline-block px-8 py-3 bg-[#1a1a1a] text-white rounded-sm font-medium"
+              >
+                Explore My Work ↓
+              </a>
+            </div>
           </motion.div>
         </div>
 
