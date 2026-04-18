@@ -98,7 +98,7 @@ const Navbar = () => {
                 className="hidden lg:flex items-center gap-6 text-[12px] font-medium lowercase tracking-widest mr-6 translate-y-[1px]"
               >
                 <Magnetic strength={0.3}><a href="mailto:anirbaansarkar@gmail.com" className="hover:opacity-60 transition-opacity">[mail]</a></Magnetic>
-                <Magnetic strength={0.3}><a href="https://linkedin.com/in/anirbaansarkar" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity">[linkedin]</a></Magnetic>
+                <Magnetic strength={0.3}><a href="https://www.linkedin.com/in/anirbaan-sarkar/" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity">[linkedin]</a></Magnetic>
                 <Magnetic strength={0.3}><a href="https://github.com/anonically22" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity">[github]</a></Magnetic>
               </motion.div>
 

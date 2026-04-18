@@ -37,8 +37,8 @@ const Contact = () => {
           <div className="flex-1 w-full space-y-4">
             {[
               { label: 'Github', href: 'https://github.com/anonically22' },
-              { label: 'Linkedin', href: 'https://linkedin.com/in/anirbaansarkar' },
-              { label: 'Twitter', href: 'https://twitter.com/anonically22' },
+              { label: 'Linkedin', href: 'https://www.linkedin.com/in/anirbaan-sarkar/' },
+              { label: 'Twitter', href: 'https://x.com/anirbaansarkar' },
             ].map(({ label, href }) => (
               <a
                 key={label}
