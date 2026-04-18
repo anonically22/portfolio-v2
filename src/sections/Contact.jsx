@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -31,6 +31,20 @@ const Contact = () => {
               anirbaansarkar@gmail.com
               <ArrowUpRight size={28} />
             </motion.a>
+
+            {/* Visit Portfolio Link - BELOW EMAIL */}
+            <div className="mt-8 opacity-50 hover:opacity-100 transition-opacity">
+              <p className="text-neutral-500 font-medium mb-1 text-[10px] uppercase tracking-widest">wanna check anonically22?</p>
+              <a 
+                href="https://anonical.vercel.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-base font-bold text-black flex items-center gap-2 group w-fit"
+              >
+                visit portfolio 
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
           </div>
 
           {/* Right: Social Links */}
