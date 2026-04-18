@@ -43,46 +43,47 @@ const B = '1px solid #1a1a1a';
 
 const FeaturedProjects = () => {
   return (
-    <section id="projects" style={{ display: 'flex', flexDirection: 'column' }}>
+    <section id="projects" className="flex flex-col">
       {/* Header Row */}
-      <div style={{ borderBottom: B }}>
-        <div className="section-container" style={{ paddingTop: '3rem', paddingBottom: '2.5rem' }}>
-          <h2 style={{ fontFamily: 'Poiret One, system-ui, sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }}>Projects</h2>
+      <div className="border-b border-[#1a1a1a]">
+        <div className="section-container py-16 lg:py-24">
+          <h2 className="text-[clamp(40px,5vw,64px)] font-bold tracking-tight">Projects</h2>
         </div>
       </div>
       {projects.map((project, index) => (
-        <div key={index} style={{ borderBottom: B }}>
-          <div className="section-container" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
+        <div key={index} className="border-b border-[#1a1a1a]">
+          <div className="section-container section-py">
             <div className="flex flex-col lg:grid lg:grid-cols-[1fr_2fr] gap-10 lg:gap-16 lg:min-h-[460px]">
 
-              {/* Left: Title + Description + Tag */}
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {/* Left: Content */}
+              <div className="flex flex-col">
                 <Link to={`/project/${project.slug}`} className="hover:opacity-70 transition-opacity">
-                  <h3 style={{ fontSize: 'clamp(32px, 4vw, 52px)' }}>
+                  <h3 className="text-[clamp(32px,4vw,52px)] font-bold leading-none mb-6">
                     {project.title}
                   </h3>
                 </Link>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '1.5rem' }}>
-                  <p style={{ fontSize: '1.1rem', fontWeight: 500, lineHeight: 1.4, maxWidth: '400px', textAlign: 'left', opacity: 0.8 }}>
+                
+                <div className="space-y-6 flex-grow">
+                  <p className="text-lg font-medium tracking-tight opacity-70 max-w-[400px]">
                     {project.description}
                   </p>
                   
                   {/* Tech Badges */}
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t, i) => (
-                      <span key={i} className="text-[10px] uppercase font-bold tracking-widest px-2 py-1 bg-gray-200/50 rounded-sm">
+                      <span key={i} className="text-[10px] uppercase font-bold tracking-widest px-2 py-1 bg-[#1a1a1a]/5 rounded-sm">
                         {t}
                       </span>
                     ))}
                   </div>
 
                   {/* Links */}
-                  <div className="flex gap-4 mt-2">
+                  <div className="flex gap-6">
                     <a 
                       href={project.liveUrl} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="text-sm font-bold uppercase tracking-widest border-b border-black pb-1 hover:opacity-50 transition-opacity"
+                      className="text-xs font-bold uppercase tracking-widest border-b border-[#1a1a1a] pb-1 hover:opacity-50 transition-opacity"
                     >
                       Visit Live
                     </a>
@@ -90,45 +91,33 @@ const FeaturedProjects = () => {
                       href={project.githubUrl} 
                       target="_blank" 
                       rel="noreferrer" 
-                      className="text-sm font-bold uppercase tracking-widest border-b border-black pb-1 hover:opacity-50 transition-opacity"
+                      className="text-xs font-bold uppercase tracking-widest border-b border-[#1a1a1a] pb-1 hover:opacity-50 transition-opacity"
                     >
                       GitHub
                     </a>
                   </div>
+                </div>
 
-                  <span
-                    style={{
-                      display: 'inline-block',
-                      backgroundColor: '#e5e4e0',
-                      padding: '0.75rem 1.5rem',
-                      fontWeight: 500,
-                      fontSize: '1rem',
-                      letterSpacing: '-0.02em',
-                      width: 'fit-content',
-                      marginTop: '1rem'
-                    }}
-                  >
-                    {project.tag}
-                  </span>
+                <div className="mt-8 px-4 py-2 bg-[#e5e4e0] w-fit text-xs font-bold uppercase tracking-widest">
+                  {project.tag}
                 </div>
               </div>
 
               {/* Right: Image */}
-              <a href={project.liveUrl} target="_blank" rel="noreferrer" style={{ overflow: 'hidden', border: '1px solid #e5e4e0' }} className="group cursor-pointer aspect-video md:aspect-auto">
+              <a 
+                href={project.liveUrl} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="group relative overflow-hidden aspect-video border border-[#1a1a1a]/10 bg-[#e5e4e0]"
+              >
                 <img
                   src={project.image}
                   alt={project.title}
                   loading="lazy"
+                  decoding="async"
                   width="1200"
                   height="675"
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                    transition: 'transform 700ms ease',
-                  }}
-                  className="group-hover:scale-105"
+                  className="w-full h-full object-cover grayscale opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
                 />
               </a>
 

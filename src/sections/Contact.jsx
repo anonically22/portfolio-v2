@@ -4,50 +4,29 @@ import { ArrowUpRight } from 'lucide-react';
 
 const Contact = () => {
   return (
-    <section id="contact" style={{ borderTop: '1px solid #1a1a1a', backgroundColor: '#f2f1ec' }}>
+    <section id="contact" className="border-t border-[#1a1a1a]" style={{ backgroundColor: '#f2f1ec' }}>
       {/* Header Row */}
-      <div style={{ borderBottom: '1px solid #1a1a1a' }}>
-        <div className="section-container" style={{ paddingTop: '3rem', paddingBottom: '2.5rem' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', alignItems: 'center' }}>
-            <h2 style={{ fontFamily: 'Poiret One, system-ui, sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }}>Contact</h2>
-            <div style={{ textAlign: 'right', fontSize: '1.125rem', fontWeight: 500 }}>
-              Available for remote work
-            </div>
+      <div className="border-b border-[#1a1a1a]">
+        <div className="section-container py-16 lg:py-24 flex justify-between items-center">
+          <h2 className="text-[clamp(40px,5vw,64px)] font-bold tracking-tight">Contact</h2>
+          <div className="text-sm lg:text-base font-medium opacity-60">
+            Available for remote work
           </div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="section-container" style={{ paddingTop: '4rem', paddingBottom: '6rem' }}>
-        <div className="flex flex-col lg:flex-row gap-16 items-end">
+      <div className="section-container section-py">
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 items-start lg:items-end">
           {/* Left: CTA */}
           <div className="flex-1">
-            <h2
-              style={{
-                fontFamily: 'Poiret One, system-ui, sans-serif',
-                fontSize: 'clamp(52px, 8vw, 120px)',
-                fontWeight: 600,
-                letterSpacing: '-0.04em',
-                lineHeight: 0.95,
-                marginBottom: '2rem',
-              }}
-            >
+            <h2 className="text-[clamp(52px,8vw,120px)] font-bold tracking-tighter leading-[0.95] mb-8">
               Let's talk!
             </h2>
             <motion.a
               href="mailto:anirbaansarkar@gmail.com"
               whileHover={{ opacity: 0.6 }}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '1rem',
-                fontSize: 'clamp(18px, 2.5vw, 32px)',
-                fontWeight: 500,
-                letterSpacing: '-0.03em',
-                textDecoration: 'none',
-                color: '#1a1a1a',
-                transition: 'opacity 200ms',
-              }}
+              className="inline-flex items-center gap-4 text-[clamp(18px,2.5vw,32px)] font-medium tracking-tight no-underline text-[#1a1a1a] transition-opacity"
             >
               anirbaansarkar@gmail.com
               <ArrowUpRight size={28} />
@@ -55,7 +34,7 @@ const Contact = () => {
           </div>
 
           {/* Right: Social Links */}
-          <div className="flex-1 w-full" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div className="flex-1 w-full space-y-4">
             {[
               { label: 'Github', href: 'https://github.com/anonically22' },
               { label: 'Linkedin', href: 'https://linkedin.com/in/anirbaansarkar' },
@@ -66,23 +45,10 @@ const Contact = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  borderBottom: '1px solid rgba(26,26,26,0.2)',
-                  paddingBottom: '0.75rem',
-                  fontSize: '1.375rem',
-                  fontWeight: 500,
-                  letterSpacing: '-0.03em',
-                  textDecoration: 'none',
-                  color: '#1a1a1a',
-                  transition: 'opacity 200ms',
-                }}
-                className="hover:opacity-60"
+                className="flex justify-between items-center border-b border-[#1a1a1a]/20 pb-4 text-[1.25rem] font-medium tracking-tight text-[#1a1a1a] transition-opacity hover:opacity-60"
               >
                 {label}
-                <ArrowUpRight size={18} style={{ opacity: 0.5 }} />
+                <ArrowUpRight size={18} className="opacity-40" />
               </a>
             ))}
           </div>

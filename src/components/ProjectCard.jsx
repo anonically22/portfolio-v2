@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
+import Skeleton from './Skeleton';
 
 const ProjectCard = ({ project, index }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -63,6 +66,7 @@ const ProjectCard = ({ project, index }) => {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="relative overflow-hidden aspect-[4/3] bg-gray-100 dark:bg-gray-900 border border-divider-light dark:border-divider-dark rounded-sm"
         >
+          {!isLoaded && <Skeleton className="absolute inset-0 z-10" />}
           <img 
             src={project.image} 
             alt={project.title}
@@ -70,7 +74,8 @@ const ProjectCard = ({ project, index }) => {
             decoding="async"
             width="800"
             height="600"
-            className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
+            onLoad={() => setIsLoaded(true)}
+            className={`w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ${isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
           />
         </motion.div>
       </div>

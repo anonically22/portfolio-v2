@@ -49,81 +49,74 @@
     min-width: 44px;
     transition: transform 200ms ease-out, opacity 200ms ease-out;
   }
-
-  button:hover, a.cta-button:hover {
-    transform: translateY(-2px);
-  }
 }
 
 @layer components {
   .section-container {
-    position: relative;
-    z-index: 10;
+    padding-left: 2rem;
+    padding-right: 2rem;
     margin-left: auto;
     margin-right: auto;
+    max-width: 1440px;
     width: 100%;
-    max-width: 1600px;
-    padding-left: 3rem;
-    padding-right: 3rem;
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 1024px) {
     .section-container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      padding-left: 4rem;
+      padding-right: 4rem;
     }
   }
 
-  .grid-layout {
+  .unified-asterisk {
+    font-family: 'Poiret One', system-ui, sans-serif;
+    font-weight: 500;
+    line-height: 1;
+    display: inline-block;
+  }
+
+  .grid-6 {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
-  @media (max-width: 768px) {
-    .grid-layout {
-      grid-template-columns: repeat(1, 1fr);
+  @media (max-width: 1024px) {
+    .grid-6 {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  .border-b-custom {
-    border-bottom: 1px solid #1a1a1a;
+  @media (max-width: 640px) {
+    .grid-6 {
+      grid-template-columns: 1fr;
+    }
   }
 
-  .border-t-custom {
-    border-top: 1px solid #1a1a1a;
+  /* Section Padding Standard */
+  .section-py {
+    padding-top: 8rem;
+    padding-bottom: 6rem;
   }
 
-  .text-clamp-hero {
-    font-size: clamp(60px, 11vw, 200px);
-    letter-spacing: -0.05em;
-    line-height: 0.85;
-    font-weight: 500;
+  @media (min-width: 1024px) {
+    .section-py {
+      padding-top: 14rem;
+      padding-bottom: 10rem;
+    }
+  }
+
+  /* Decorative Grid */
+  .grid-bg {
+    background-image: 
+      linear-gradient(to right, rgba(26, 26, 26, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(26, 26, 26, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: center top;
   }
 }
 
 @layer utilities {
-  /* Vertical Grid Lines overlay */
-  .v-grid {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    pointer-events: none;
-    max-width: 1600px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-
-  .v-line {
-    width: 1px;
-    height: 100%;
-    background-color: #d8d7d3;
-  }
-
   .noise {
     position: fixed;
     inset: 0;

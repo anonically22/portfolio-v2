@@ -20,72 +20,43 @@ const researchEntries = [
 
 const Research = () => {
   return (
-    <section id="research" style={{ borderBottom: B }}>
+    <section id="research" className="border-b border-[#1a1a1a]">
       {/* Header Row */}
-      <div style={{ borderBottom: B }}>
-        <div className="section-container" style={{ paddingTop: '3rem', paddingBottom: '2.5rem' }}>
-          <h2 style={{ fontFamily: 'Poiret One, system-ui, sans-serif', fontSize: 'clamp(40px, 5vw, 64px)', fontWeight: 'bold', letterSpacing: '-0.02em', lineHeight: 1 }}>
-            Research &amp; Publications
+      <div className="border-b border-[#1a1a1a]">
+        <div className="section-container py-8 lg:py-12">
+          <h2 className="text-[clamp(40px,5vw,64px)] font-bold tracking-tight">
+            Research & Publications
           </h2>
         </div>
       </div>
 
       {/* Content */}
-      <div className="section-container" style={{ paddingTop: '6rem', paddingBottom: '6rem' }}>
-        <div className="flex flex-col gap-12 lg:gap-16 ml-0 lg:ml-[calc(100%/3)]">
+      <div className="section-container section-py">
+        <div className="flex flex-col gap-12 lg:gap-20 lg:ml-[25%] lg:max-w-[800px]">
           {researchEntries.map((entry, idx) => (
-            <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div key={idx} className="space-y-4">
               {entry.link ? (
-                <a href={entry.link} target="_blank" rel="noreferrer" className="hover:text-blue-600 transition-colors">
-                  <h3
-                    style={{
-                      fontSize: 'clamp(24px, 3vw, 40px)',
-                      fontWeight: 500,
-                      lineHeight: 1.1,
-                      letterSpacing: '-0.04em',
-                    }}
-                  >
+                <a href={entry.link} target="_blank" rel="noreferrer" className="block group">
+                  <h3 className="text-[clamp(24px,3vw,40px)] font-bold tracking-tighter leading-tight group-hover:opacity-60 transition-opacity">
                     {entry.title} ↗
                   </h3>
                 </a>
               ) : (
-                <h3
-                  style={{
-                    fontSize: 'clamp(24px, 3vw, 40px)',
-                    fontWeight: 500,
-                    lineHeight: 1.1,
-                    letterSpacing: '-0.04em',
-                  }}
-                >
+                <h3 className="text-[clamp(24px,3vw,40px)] font-bold tracking-tighter leading-tight">
                   {entry.title}
                 </h3>
               )}
-              <span
-                style={{
-                  fontSize: '1.125rem',
-                  fontWeight: 600,
-                  fontStyle: 'italic',
-                  opacity: 0.45,
-                  letterSpacing: '-0.02em',
-                }}
-              >
+              
+              <div className="text-sm font-bold uppercase tracking-widest opacity-40">
                 {entry.subtitle}
-              </span>
-              <p
-                style={{
-                  fontSize: '1.25rem',
-                  fontWeight: 500,
-                  lineHeight: 1.5,
-                  color: '#444',
-                  marginTop: '0.5rem',
-                  textAlign: 'justify',
-                  hyphens: 'auto'
-                }}
-              >
+              </div>
+
+              <p className="text-lg font-medium leading-relaxed opacity-60">
                 {entry.description}
               </p>
+
               {idx < researchEntries.length - 1 && (
-                <div style={{ height: '1px', backgroundColor: '#d8d7d3', marginTop: '1rem' }} />
+                <div className="w-20 h-px bg-[#1a1a1a]/20 mt-12" />
               )}
             </div>
           ))}

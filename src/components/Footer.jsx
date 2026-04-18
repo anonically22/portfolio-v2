@@ -29,33 +29,28 @@ const Footer = () => {
   };
 
   return (
-    <footer style={{ backgroundColor: '#f2f1ec', color: '#1a1a1a' }}>
-
-      {/* --- NEW FOOTER DESIGN --- */}
-      <div className="py-10 px-8 md:px-16 border-t border-[rgba(26,26,26,0.1)]">
-        <div className="section-container">
-
-        {/* Bottom Bar: Copyright and Back to top */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-[rgba(26,26,26,0.1)]">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center">
-              <span style={{ fontSize: '32px', lineHeight: 1, transform: 'translateY(8px)', display: 'inline-block' }} className="font-sans mr-[2px] font-medium">*</span>
-              <span style={{ fontSize: '28px', lineHeight: 1, fontFamily: 'Poiret One, system-ui, sans-serif', display: 'inline-block' }} className="font-bold tracking-tight">as</span>
+    <footer style={{ backgroundColor: '#f2f1ec' }}>
+      <div className="section-container border-t border-[#1a1a1a] py-16">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          
+          <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+            <span className="flex items-center gap-1">
+              <span className="unified-asterisk text-3xl">*</span>
+              <span className="text-2xl font-bold tracking-tight" style={{ fontFamily: 'Poiret One, system-ui, sans-serif' }}>as</span>
             </span>
-            <p className="text-gray-500 text-sm font-semibold tracking-tight flex items-center">
-              © {new Date().getFullYear()} Anirbaan Sarkar & Anonically22. Crafted with <span className="text-[#8b5cf6] mx-1">💜</span>
-              <a href="https://portfolio1-orcin-theta.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4 text-[10px] text-gray-300 hover:text-gray-900 transition-colors uppercase tracking-[0.2em] font-black" title="Legacy Portfolio">v1</a>
+            <p className="text-gray-500 text-sm font-medium tracking-tight">
+              © {new Date().getFullYear()} Anirbaan Sarkar. Crafted with 🖤
+              <a href="https://portfolio1-orcin-theta.vercel.app/" target="_blank" rel="noopener noreferrer" className="ml-4 text-[10px] text-gray-400 hover:text-gray-900 transition-colors uppercase tracking-widest font-bold">v1.0</a>
             </p>
           </div>
-          
-          <button 
+
+          <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-5 py-2.5 text-xs font-black uppercase tracking-[0.2em] text-gray-900 border border-gray-300 rounded-full hover:bg-gray-900 hover:text-white transition-colors group"
+            className="flex items-center gap-2 px-6 py-2 text-xs font-bold uppercase tracking-widest text-[#1a1a1a] border border-[#1a1a1a] rounded-sm hover:bg-[#1a1a1a] hover:text-white transition-all group"
           >
-            Back To Top <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" strokeWidth={3} />
+            Back To Top <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </div>
-      </div>
       </div>
     </footer>
   );
