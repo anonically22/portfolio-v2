@@ -1,14 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Magnetic from './Magnetic';
 
 const Navbar = () => {
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-[100]"
       style={{
-        borderBottom: '1px solid #1a1a1a',
+        borderBottom: '1px solid black',
         backgroundColor: 'rgba(242, 241, 236, 0.92)',
         backdropFilter: 'blur(12px)',
+        color: 'black'
       }}
     >
       <div className="section-container">
@@ -16,60 +18,68 @@ const Navbar = () => {
 
           {/* Left: Logo/Name */}
           <div className="flex-1 flex items-center">
-            <motion.a
-              href="/"
-              initial="initial"
-              whileHover="hover"
-              onClick={(e) => {
-                if (window.location.pathname === '/') {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
-              }}
-              className="flex items-center hover:opacity-80 transition-opacity w-fit relative overflow-hidden h-[40px]"
-            >
-              <div className="flex items-center h-full">
-                <motion.span
-                  variants={{
-                    initial: { y: 0 },
-                    hover: { y: 12 }
-                  }}
-                  className="unified-asterisk text-4xl mr-1 flex items-center h-full translate-y-[3px]"
-                >
-                  *
-                </motion.span>
+            <Magnetic strength={0.2}>
+              <motion.a
+                href="/"
+                initial="initial"
+                whileHover="hover"
+                onClick={(e) => {
+                  if (window.location.pathname === '/') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className="flex items-center hover:opacity-80 transition-opacity w-fit relative overflow-hidden h-[40px] cursor-typography"
+              >
+                <div className="flex items-center h-full">
+                  <motion.span
+                    variants={{
+                      initial: { y: 0 },
+                      hover: { y: 12 }
+                    }}
+                    className="unified-asterisk text-4xl mr-1 flex items-center h-full translate-y-[3px]"
+                  >
+                    *
+                  </motion.span>
 
-                <div className="relative flex items-center h-full">
-                  <motion.span
-                    variants={{
-                      initial: { opacity: 1, x: 0 },
-                      hover: { opacity: 0, x: -10 }
-                    }}
-                    className="tracking-tighter absolute left-0 text-[32px] md:text-[34px] leading-none flex items-center translate-y-[2px]"
-                    style={{ fontFamily: "'Poiret One', cursive", fontWeight: 400 }}
-                  >
-                    as
-                  </motion.span>
-                  <motion.span
-                    variants={{
-                      initial: { opacity: 0, x: 20 },
-                      hover: { opacity: 1, x: 0 }
-                    }}
-                    className="tracking-tighter text-[32px] md:text-[34px] leading-none whitespace-nowrap flex items-center translate-y-[2px]"
-                    style={{ fontFamily: "'Poiret One', cursive", fontWeight: 400 }}
-                  >
-                    anirbaan sarkar
-                  </motion.span>
+                  <div className="relative flex items-center h-full">
+                    <motion.span
+                      variants={{
+                        initial: { opacity: 1, x: 0 },
+                        hover: { opacity: 0, x: -10 }
+                      }}
+                      className="tracking-tighter absolute left-0 text-[32px] md:text-[34px] leading-none flex items-center translate-y-[2px]"
+                      style={{ fontFamily: "'Poiret One', cursive", fontWeight: 400 }}
+                    >
+                      as
+                    </motion.span>
+                    <motion.span
+                      variants={{
+                        initial: { opacity: 0, x: 20 },
+                        hover: { opacity: 1, x: 0 }
+                      }}
+                      className="tracking-tighter text-[32px] md:text-[34px] leading-none whitespace-nowrap flex items-center translate-y-[2px]"
+                      style={{ fontFamily: "'Poiret One', cursive", fontWeight: 400 }}
+                    >
+                      anirbaan sarkar
+                    </motion.span>
+                  </div>
                 </div>
-              </div>
-            </motion.a>
+              </motion.a>
+            </Magnetic>
           </div>
 
           {/* Center: Navigation Links */}
           <div className="hidden md:flex flex-1 justify-center items-center gap-10 text-[15px] font-medium tracking-tight h-full translate-y-[6px]">
-            <a href="/#about" className="hover:opacity-60 transition-opacity">[About]</a>
-            <a href="/#projects" className="hover:opacity-60 transition-opacity">[Projects]</a>
-            <a href="/#contact" className="hover:opacity-60 transition-opacity">[Contact]</a>
+            <Magnetic strength={0.15}>
+              <a href="/#about" className="hover:opacity-60 transition-opacity">[About]</a>
+            </Magnetic>
+            <Magnetic strength={0.15}>
+              <a href="/#projects" className="hover:opacity-60 transition-opacity">[Projects]</a>
+            </Magnetic>
+            <Magnetic strength={0.15}>
+              <a href="/#contact" className="hover:opacity-60 transition-opacity">[Contact]</a>
+            </Magnetic>
           </div>
 
           {/* Right: Contact Trigger */}
@@ -87,9 +97,9 @@ const Navbar = () => {
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="hidden lg:flex items-center gap-6 text-[12px] font-medium lowercase tracking-widest mr-6 translate-y-[1px]"
               >
-                <a href="mailto:anirbaansarkar@gmail.com" className="hover:opacity-60 transition-opacity">[mail]</a>
-                <a href="https://linkedin.com/in/anirbaansarkar" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity">[linkedin]</a>
-                <a href="https://github.com/anonically22" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity">[github]</a>
+                <Magnetic strength={0.3}><a href="mailto:anirbaansarkar@gmail.com" className="hover:opacity-60 transition-opacity">[mail]</a></Magnetic>
+                <Magnetic strength={0.3}><a href="https://linkedin.com/in/anirbaansarkar" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity">[linkedin]</a></Magnetic>
+                <Magnetic strength={0.3}><a href="https://github.com/anonically22" target="_blank" rel="noreferrer" className="hover:opacity-60 transition-opacity">[github]</a></Magnetic>
               </motion.div>
 
               <motion.span

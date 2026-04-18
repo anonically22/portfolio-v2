@@ -12,7 +12,7 @@
   body {
     font-family: 'Jost', system-ui, sans-serif;
     background-color: #f2f1ec;
-    color: #1a1a1a;
+    color: black;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 16px; /* Minimum for mobile */

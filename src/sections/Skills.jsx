@@ -1,38 +1,36 @@
 import React from 'react';
-import { Monitor, PenTool, MousePointer2, Share2 } from 'lucide-react';
+import { Cpu, Globe, FlaskConical, Layout } from 'lucide-react';
 
-const B = '1px solid #1a1a1a';
-
-const services = [
+const buildItems = [
   {
-    Icon: Monitor,
-    title: 'Web Architecture',
-    description: 'Building robust and scalable frontend ecosystems using performance-driven methodologies and modern React patterns.',
+    Icon: Cpu,
+    title: 'AI-Powered Tools',
+    description: 'Developing intelligent applications that leverage large language models and machine learning to solve real-world problems.',
   },
   {
-    Icon: PenTool,
-    title: 'AI Integration',
-    description: 'Deploying intelligent machine learning integrations for modern data-driven digital products.',
+    Icon: Globe,
+    title: 'Full-Stack Web Apps',
+    description: 'Building end-to-end web applications with scalable architectures, focusing on performance, security, and seamless user experiences.',
   },
   {
-    Icon: MousePointer2,
-    title: 'Full-Stack Development',
-    description: 'End-to-end development from database schemas to polished user interfaces with Supabase & React.',
+    Icon: FlaskConical,
+    title: 'Experimental Interfaces',
+    description: 'Exploring the boundaries of UI/UX through creative coding, interactive prototypes, and non-traditional digital environments.',
   },
   {
-    Icon: Share2,
-    title: 'System Design',
-    description: 'Architecting scalable software systems with clean separation of concerns and efficient data flows.',
+    Icon: Layout,
+    title: 'Product Prototypes',
+    description: 'Turning abstract concepts into high-fidelity, functional prototypes that feel like the finished product from day one.',
   },
 ];
 
 const Skills = () => {
   return (
-    <section className="border-b border-[#1a1a1a]">
+    <section className="border-b border-black">
       {/* Header Row */}
-      <div className="border-b border-[#1a1a1a]">
-        <div className="section-container py-8 lg:py-12">
-          <h2 className="text-[clamp(40px,5vw,64px)] font-bold tracking-tight">Services</h2>
+      <div className="border-b border-black">
+        <div className="section-container py-16 lg:py-24">
+          <h2 className="text-[clamp(40px,5vw,64px)] font-bold tracking-tight text-black">What I Build</h2>
         </div>
       </div>
 
@@ -42,23 +40,23 @@ const Skills = () => {
 
           {/* Left intro */}
           <div>
-            <p className="text-[clamp(20px,2vw,28px)] font-medium leading-[1.3] tracking-tight opacity-70">
-              Transforming complex problems into intuitive digital solutions through engineering excellence.
+            <p className="text-[clamp(20px,2vw,28px)] font-medium leading-[1.3] tracking-tight text-neutral-600">
+              Turning complex ideas into functional products through structured design and engineering.
             </p>
           </div>
 
           {/* Right grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 lg:gap-20">
-            {services.map(({ Icon, title, description }, idx) => (
+            {buildItems.map(({ Icon, title, description }, idx) => (
               <div key={idx} className="space-y-6">
-                <div className="w-12 h-12 flex items-center justify-center border border-[#1a1a1a]/10 rounded-sm">
-                  <Icon size={24} strokeWidth={1.5} />
+                <div className="w-12 h-12 flex items-center justify-center border border-black/10 rounded-sm">
+                  <Icon size={24} strokeWidth={1.5} className="text-black" />
                 </div>
                 <div className="space-y-4">
-                  <h4 className="text-2xl font-bold tracking-tight">
+                  <h4 className="text-2xl font-bold tracking-tight text-black">
                     {title}
                   </h4>
-                  <p className="text-base font-medium leading-relaxed opacity-60">
+                  <p className="text-base font-medium leading-relaxed text-neutral-600 text-justify">
                     {description}
                   </p>
                 </div>

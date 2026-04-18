@@ -20,13 +20,16 @@ const researchEntries = [
 
 const Research = () => {
   return (
-    <section id="research" className="border-b border-[#1a1a1a]">
+    <section id="research" className="border-b border-black">
       {/* Header Row */}
-      <div className="border-b border-[#1a1a1a]">
-        <div className="section-container py-8 lg:py-12">
-          <h2 className="text-[clamp(40px,5vw,64px)] font-bold tracking-tight">
+      <div className="border-b border-black">
+        <div className="section-container py-16 lg:py-24">
+          <h2 className="text-[clamp(40px,5vw,64px)] font-bold tracking-tight text-black">
             Research & Publications
           </h2>
+          <p className="text-sm text-neutral-500 mt-6">
+            Published research in AI and cybersecurity.
+          </p>
         </div>
       </div>
 
@@ -37,26 +40,26 @@ const Research = () => {
             <div key={idx} className="space-y-4">
               {entry.link ? (
                 <a href={entry.link} target="_blank" rel="noreferrer" className="block group">
-                  <h3 className="text-[clamp(24px,3vw,40px)] font-bold tracking-tighter leading-tight group-hover:opacity-60 transition-opacity">
+                  <h3 className="text-[clamp(24px,3vw,40px)] font-bold tracking-tighter leading-tight text-black group-hover:opacity-60 transition duration-300">
                     {entry.title} ↗
                   </h3>
                 </a>
               ) : (
-                <h3 className="text-[clamp(24px,3vw,40px)] font-bold tracking-tighter leading-tight">
+                <h3 className="text-[clamp(24px,3vw,40px)] font-bold tracking-tighter leading-tight text-black">
                   {entry.title}
                 </h3>
               )}
               
-              <div className="text-sm font-bold uppercase tracking-widest opacity-40">
+              <div className="text-sm font-bold uppercase tracking-widest text-neutral-400">
                 {entry.subtitle}
               </div>
 
-              <p className="text-lg font-medium leading-relaxed opacity-60">
+              <p className="text-lg font-medium leading-relaxed text-neutral-600 text-justify">
                 {entry.description}
               </p>
 
               {idx < researchEntries.length - 1 && (
-                <div className="w-20 h-px bg-[#1a1a1a]/20 mt-12" />
+                <div className="w-20 h-px bg-black/10 mt-12" />
               )}
             </div>
           ))}

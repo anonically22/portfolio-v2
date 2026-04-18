@@ -6,7 +6,7 @@ import CustomCursor from './CustomCursor';
 
 const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col relative overflow-x-hidden" style={{ backgroundColor: '#f2f1ec', color: '#1a1a1a' }}>
+    <div className="min-h-screen flex flex-col relative overflow-x-hidden" style={{ backgroundColor: '#f2f1ec', color: 'black' }}>
       {/* Background Layer: Grid & Animated Symbols */}
       <div className="fixed inset-0 pointer-events-none z-0" aria-hidden="true">
         {/* The Grid */}
