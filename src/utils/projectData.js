@@ -1,34 +1,47 @@
-import secondLookImg from '../assets/projects/second-look.png';
+import secondLookImg from '../assets/projects/secondlook.png';
 import subsTrackImg from '../assets/projects/substrack.png';
 import workbenchImg from '../assets/projects/workbench.png';
 
 export const projects = {
   "second-look": {
-    title: "Second Look",
-    description: "AI UX Analysis Tool",
-    image: secondLookImg,
-    liveUrl: "https://secondlook-two.vercel.app/",
-    overview: "Second Look is an AI-powered UX analysis tool that evaluates digital interfaces and generates structured critique reports across multiple modes such as casual, professional, brutal, and technical.",
-    problem: "Design feedback is often subjective, unstructured, and time-consuming. There is no scalable way to analyze UI systems programmatically and extract meaningful UX insights.",
-    approach: "Designed a multi-step AI-driven pipeline that accepts UI input (images/screenshots), extracts structural and visual patterns, maps them into UX principles, and outputs structured critique reports.",
-    systemDesign: {
-      explanation: "A modular critique engine that combines visual pattern extraction with prompt-engineered AI layers.",
-      flow: [
-        { label: "Input", detail: "UI Screenshot / Interface" },
-        { label: "Processing", detail: "Visual pattern, typography, and layout detection" },
-        { label: "AI Layer", detail: "Multi-mode critique system generation" },
-        { label: "Output", detail: "Structured UX report with recommendations" }
-      ]
-    },
-    techStack: ["React 18", "Tailwind CSS", "Node.js", "AI APIs"],
-    features: [
-      "Multi-mode critique system",
-      "AI-generated structured reports",
-      "Design system-aware analysis",
-      "Admin usage dashboard"
-    ],
-    outcome: "Built a functional AI product for UX analysis, demonstrating system-level thinking in design + AI integration."
+  title: "Second Look",
+  description: "Component Intelligence Platform",
+  image: secondLookImg,
+  liveUrl: "https://secondlook-two.vercel.app/",
+  overview: "Second Look is a component audit platform that inspects digital products for design drift, component inconsistency, duplication patterns, hierarchy failures, spacing breakdowns, and accessibility issues. It transforms interface systems into structured operational audit reports.",
+  problem: "As products scale, UI systems drift. Components duplicate, spacing loses consistency, hierarchy weakens, and accessibility standards degrade. Existing design reviews are manual, subjective, and difficult to scale across product systems.",
+  approach: "Built a modular component audit engine that crawls product interfaces, detects structural UI patterns, groups repeated components, scores system consistency heuristically, and generates structured audit intelligence using an AI interpretation layer.",
+  systemDesign: {
+    explanation: "A layered audit pipeline combining deterministic component detection with AI-powered interpretation for infrastructure-grade design system auditing.",
+    flow: [
+      { label: "Input", detail: "Product URL / Interface System" },
+      { label: "Crawling", detail: "DOM extraction and multi-page component scanning" },
+      { label: "Detection", detail: "Buttons, cards, forms, inputs, hierarchy, sections" },
+      { label: "Scoring", detail: "Consistency, duplication, spacing, hierarchy, accessibility" },
+      { label: "AI Layer", detail: "Structured audit interpretation and recommendations" },
+      { label: "Output", detail: "Component audit report with findings and system recommendations" }
+    ]
   },
+  techStack: [
+    "React 18",
+    "Tailwind CSS",
+    "Vercel Serverless Functions",
+    "OpenRouter API",
+    "Axios",
+    "Cheerio",
+    "Supabase"
+  ],
+  features: [
+    "Component inventory generation",
+    "Design drift detection",
+    "Multi-page system audits",
+    "Heuristic scoring engine",
+    "Structured audit reports",
+    "Exportable reports",
+    "Usage analytics dashboard"
+  ],
+  outcome: "Built an infrastructure-focused component intelligence platform that turns interface systems into measurable audit artifacts, bridging design systems, frontend architecture, and AI-assisted operational analysis."
+},
   "substrack": {
     title: "SubsTrack",
     description: "Subscription Intelligence Platform",

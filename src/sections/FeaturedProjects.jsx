@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import Magnetic from '../components/Magnetic';
-import secondLookImg from '../assets/projects/second-look.png';
+import secondLookImg from '../assets/projects/secondlook.png';
 import subsTrackImg from '../assets/projects/substrack.png';
 import workbenchImg from '../assets/projects/workbench.png';
 
@@ -11,14 +11,14 @@ import { projects as projectDataMap } from '../utils/projectData';
 
 const projects = [
   {
-    slug: 'second-look',
-    name: 'Second Look',
-    description: 'AI-powered tool for detecting image manipulation and verifying authenticity.',
-    techStack: 'React • Node.js • Deep Learning',
-    image: secondLookImg,
-    liveUrl: projectDataMap['second-look'].liveUrl,
-    githubUrl: 'https://github.com/anonically22/second-look',
-  },
+  slug: "second-look",
+  name: "Second Look",
+  description: "Component intelligence platform for auditing design systems, detecting design drift, and enforcing UI consistency across digital products.",
+  techStack: "React • Tailwind CSS • Serverless Functions • OpenRouter • Supabase",
+  image: secondLookImg,
+  liveUrl: projectDataMap["second-look"].liveUrl,
+  githubUrl: "https://github.com/anonically22/second-look",
+},
   {
     slug: 'workbench',
     name: 'Workbench',
