@@ -74,7 +74,8 @@ const ProjectCard = ({ project }) => (
           >
             <img
               src={project.image}
-              alt={project.name}
+              alt={`${project.name} — project screenshot`}
+              loading="lazy"
               className="w-full h-full object-cover grayscale opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
             />
           </Link>
@@ -149,7 +150,7 @@ const FeaturedProjects = () => {
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     className="w-full aspect-video overflow-hidden border border-black shadow-[20px_20px_0px_rgba(0,0,0,0.05)]"
                   >
-                    <img src={subsTrackImg} alt="SubsTrack" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                    <img src={subsTrackImg} alt="SubsTrack — subscription intelligence platform screenshot" loading="lazy" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
                   </motion.div>
                 </Link>
               </Magnetic>

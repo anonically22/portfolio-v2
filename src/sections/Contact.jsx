@@ -59,6 +59,7 @@ const Contact = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Visit Anirbaan Sarkar on ${label}`}
                 className="flex justify-between items-center border-b border-black/20 pb-4 text-[1.25rem] font-medium tracking-tight text-black transition duration-300 hover:opacity-60"
               >
                 {label}

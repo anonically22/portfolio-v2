@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1a1a1a"/>
+  <text x="80" y="120" font-family="system-ui, sans-serif" font-size="120" fill="#f2f1ec" opacity="0.15">*</text>
+  <text x="600" y="260" text-anchor="middle" font-family="system-ui, sans-serif" font-size="72" font-weight="bold" fill="white">Anirbaan Sarkar</text>
+  <text x="600" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" fill="#999999">Software Engineer · Researcher · Data Engineer</text>
+  <text x="600" y="530" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#555555">anirbaansarkar.vercel.app</text>
+</svg>

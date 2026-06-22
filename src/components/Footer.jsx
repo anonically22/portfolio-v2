@@ -42,12 +42,14 @@ const Footer = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-[10px] text-neutral-400 hover:text-black transition-colors uppercase tracking-widest font-bold"
+              aria-label="Visit portfolio version 1.0"
             >
               v1.0
             </a>
             
             <button
               onClick={scrollToTop}
+              aria-label="Scroll back to top of page"
               className="flex items-center gap-2 group hover:text-black transition-colors"
             >
               Back To Top <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />

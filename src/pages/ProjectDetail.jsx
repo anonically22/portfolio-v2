@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Cpu, Layers, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { projects } from '../utils/projectData';
+import SEO from '../components/SEO';
 
 const Section = ({ title, children, icon: Icon }) => (
   <motion.section
@@ -50,6 +51,12 @@ const ProjectDetail = () => {
 
   return (
     <div className="pt-32 pb-20 bg-[#f2f1ec]">
+      <SEO
+        title={`${project.title} — Case Study | Anirbaan Sarkar`}
+        description={project.overview || project.description}
+        keywords={`${project.title}, Anirbaan Sarkar, ${(project.techStack || []).join(', ')}, Case Study`}
+        canonicalPath={`/project/${slug}`}
+      />
       <div className="section-container">
         {/* Navigation */}
         <motion.div
@@ -117,7 +124,8 @@ const ProjectDetail = () => {
         >
           <img 
             src={project.image} 
-            alt={project.title} 
+            alt={`${project.title} — case study featured image`} 
+            loading="lazy"
             className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 transition-all duration-1000"
           />
         </motion.div>

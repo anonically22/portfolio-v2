@@ -10,9 +10,16 @@ import Skills from './sections/Skills';
 import Contact from './sections/Contact';
 import ProjectDetail from './pages/ProjectDetail';
 import Preloader from './components/Preloader';
+import SEO from './components/SEO';
 
 const Home = () => (
   <>
+    <SEO
+      title="Anirbaan Sarkar | Software Engineer, Researcher & Data Engineer"
+      description="Portfolio of Anirbaan Sarkar showcasing software engineering, data engineering, research projects, machine learning experiments, publications, and development work."
+      keywords="Anirbaan Sarkar, Anirbaan Sarkar Portfolio, Software Engineer, Data Engineer, Machine Learning Researcher, Full Stack Developer, React Developer"
+      canonicalPath="/"
+    />
     <Hero />
     <FeaturedProjects />
     <Skills />

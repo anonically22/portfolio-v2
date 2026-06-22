@@ -5,6 +5,7 @@ import Magnetic from './Magnetic';
 const Navbar = () => {
   return (
     <nav
+      aria-label="Main navigation"
       className="fixed top-0 left-0 right-0 z-[100]"
       style={{
         borderBottom: '1px solid black',
@@ -51,7 +52,8 @@ const Navbar = () => {
                       className="tracking-tighter absolute left-0 text-[32px] md:text-[34px] leading-none flex items-center translate-y-[2px]"
                       style={{ fontFamily: "'Poiret One', cursive", fontWeight: 400 }}
                     >
-                      as
+                      <span aria-hidden="true">as</span>
+                      <span className="sr-only">Anirbaan Sarkar</span>
                     </motion.span>
                     <motion.span
                       variants={{
@@ -70,7 +72,7 @@ const Navbar = () => {
           </div>
 
           {/* Center: Navigation Links */}
-          <div className="hidden md:flex flex-1 justify-center items-center gap-10 text-[15px] font-medium tracking-tight h-full translate-y-[6px]">
+          <div className="hidden md:flex flex-1 justify-center items-center gap-10 text-[15px] font-medium tracking-tight h-full translate-y-[6px]" role="navigation" aria-label="Page sections">
             <Magnetic strength={0.15}>
               <a href="/#about" className="hover:opacity-60 transition-opacity">[About]</a>
             </Magnetic>
