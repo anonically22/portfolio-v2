@@ -1,7 +1,11 @@
 import React from 'react';
 import { ArrowUp, ArrowRight } from 'lucide-react';
 
+import { getEmailLink } from '../utils/email';
+
 const Footer = () => {
+  const isMobile = typeof navigator !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -36,7 +40,15 @@ const Footer = () => {
           </div>
 
           {/* Right: Actions */}
-          <div className="flex items-center gap-8">
+          <div className="flex flex-wrap items-center gap-6 md:gap-8">
+            <a
+              href={getEmailLink('anonically22@gmail.com')}
+              target={isMobile ? "_self" : "_blank"}
+              rel="noopener noreferrer"
+              className="text-[10px] text-neutral-400 hover:text-black transition-colors uppercase tracking-widest font-bold"
+            >
+              Contact
+            </a>
             <a 
               href="https://portfolio1-orcin-theta.vercel.app/" 
               target="_blank" 

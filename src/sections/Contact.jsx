@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import { getEmailLink } from '../utils/email';
 
 const Contact = () => {
+  const isMobile = typeof navigator !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   return (
     <section id="contact" className="border-t border-black" style={{ backgroundColor: '#f2f1ec' }}>
       {/* Header Row */}
@@ -23,14 +26,28 @@ const Contact = () => {
             <h2 className="text-[clamp(52px,8vw,120px)] font-bold tracking-tighter leading-[0.95] mb-8 text-black">
               Let's talk!
             </h2>
-            <motion.a
-              href="mailto:anirbaansarkar@gmail.com"
-              whileHover={{ opacity: 0.6 }}
-              className="inline-flex items-center gap-4 text-[clamp(18px,2.5vw,32px)] font-medium tracking-tight no-underline text-black transition duration-300"
-            >
-              anirbaansarkar@gmail.com
-              <ArrowUpRight size={28} />
-            </motion.a>
+            <div className="flex flex-col gap-4">
+              <motion.a
+                href={getEmailLink('anirbaansarkar@gmail.com')}
+                target={isMobile ? "_self" : "_blank"}
+                rel="noopener noreferrer"
+                whileHover={{ opacity: 0.6 }}
+                className="inline-flex items-center gap-4 text-[clamp(18px,2.5vw,32px)] font-medium tracking-tight no-underline text-black transition duration-300 w-fit"
+              >
+                anirbaansarkar@gmail.com
+                <ArrowUpRight size={28} />
+              </motion.a>
+              <motion.a
+                href={getEmailLink('anonically22@gmail.com')}
+                target={isMobile ? "_self" : "_blank"}
+                rel="noopener noreferrer"
+                whileHover={{ opacity: 0.6 }}
+                className="inline-flex items-center gap-4 text-[clamp(18px,2.5vw,32px)] font-medium tracking-tight no-underline text-black transition duration-300 w-fit"
+              >
+                anonically22@gmail.com
+                <ArrowUpRight size={28} />
+              </motion.a>
+            </div>
 
             {/* Visit Portfolio Link - BELOW EMAIL */}
             <div className="mt-8 opacity-50 hover:opacity-100 transition-opacity">
